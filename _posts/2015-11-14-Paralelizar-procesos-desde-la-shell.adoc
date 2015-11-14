@@ -1,0 +1,22 @@
+= Aprovechar al máximo la CPU con parallel
+:published_at: 2015-11-14
+:hp-tags: paralelizar, parallel, shell
+:hp-alt-title: Paralelizar procesos desde la shell
+
+Utilizaremos el programa _parallel_ para lanzar tantos procesos en paralelos como hilos tenga nuestra CPU.
+
+== Instalación
+Para instalarlo de los repositorios en Ubuntu:
+
+----
+sudo apt-get install parallel
+----
+
+== Utilización
+
+El siguiente ejemplo muestra como convertir en paralelo tantos ficheros SRA a FASTQ como hilos tenga la CPU, quedando el resto en cola. Cuando una conversión termina, se inicia otra que estaba en cola.
+
+Si añadimos *_--eta_* y *_--progress_* podremos estimar el tiempo restante y seguir el avance de la cola, respectivamente.
+----
+ls *.sra | parallel -j+0 --eta --progress fastq-dump --skip-technical
+----
