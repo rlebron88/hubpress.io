@@ -1,6 +1,6 @@
 = Aprovechar al máximo la CPU con parallel
 :published_at: 2015-11-14
-:hp-tags: paralelizar, parallel, shell
+:hp-tags: paralelizar, parallel, fastq-dump, shell
 :hp-alt-title: Paralelizar procesos desde la shell
 
 Utilizaremos el programa _parallel_ para lanzar tantos procesos en paralelos como hilos tenga nuestra CPU.
