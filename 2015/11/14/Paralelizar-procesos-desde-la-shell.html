@@ -20,17 +20,17 @@
     <meta property="og:site_name" content="Bio ✕ Info" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content="Aprovechar al máximo la CPU con parallel" />
-    <meta property="og:description" content="Utilizaremos el programa parallel para lanzar tantos procesos en paralelos como hilos tenga nuestra CPU. Instalación Para instalarlo de los repositorios en Ubuntu: sudo apt-get install parallel Utilización El siguiente ejemplo muestra como convertir a FASTQ en paralelo tantos fi..." />
+    <meta property="og:description" content="Utilizaremos el programa parallel para lanzar tantos procesos en paralelos como hilos tenga nuestra CPU. Instalación Para instalar parallel de los repositorios en Ubuntu: sudo apt-get install parallel Para el ejemplo necesitaremos el programa fastq-dump: sudo apt-get install sra..." />
     <meta property="og:url" content="https://rlebron88.github.io/2015/11/14/Paralelizar-procesos-desde-la-shell.html" />
     <meta property="article:published_time" content="2015-11-13T23:00:00.000Z" />
-    <meta property="article:modified_time" content="2015-11-14T10:58:25.345Z" />
+    <meta property="article:modified_time" content="2015-11-14T11:34:58.807Z" />
     <meta property="article:tag" content="paralelizar" />
     <meta property="article:tag" content="parallel" />
     <meta property="article:tag" content="shell" />
     
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="Aprovechar al máximo la CPU con parallel" />
-    <meta name="twitter:description" content="Utilizaremos el programa parallel para lanzar tantos procesos en paralelos como hilos tenga nuestra CPU. Instalación Para instalarlo de los repositorios en Ubuntu: sudo apt-get install parallel Utilización El siguiente ejemplo muestra como convertir a FASTQ en paralelo tantos fi..." />
+    <meta name="twitter:description" content="Utilizaremos el programa parallel para lanzar tantos procesos en paralelos como hilos tenga nuestra CPU. Instalación Para instalar parallel de los repositorios en Ubuntu: sudo apt-get install parallel Para el ejemplo necesitaremos el programa fastq-dump: sudo apt-get install sra..." />
     <meta name="twitter:url" content="https://rlebron88.github.io/2015/11/14/Paralelizar-procesos-desde-la-shell.html" />
     
     <script type="application/ld+json">
@@ -48,9 +48,9 @@
     "headline": "Aprovechar al máximo la CPU con parallel",
     "url": "https://rlebron88.github.io/2015/11/14/Paralelizar-procesos-desde-la-shell.html",
     "datePublished": "2015-11-13T23:00:00.000Z",
-    "dateModified": "2015-11-14T10:58:25.345Z",
+    "dateModified": "2015-11-14T11:34:58.807Z",
     "keywords": "paralelizar,  parallel,  shell",
-    "description": "Utilizaremos el programa parallel para lanzar tantos procesos en paralelos como hilos tenga nuestra CPU. Instalación Para instalarlo de los repositorios en Ubuntu: sudo apt-get install parallel Utilización El siguiente ejemplo muestra como convertir a FASTQ en paralelo tantos fi..."
+    "description": "Utilizaremos el programa parallel para lanzar tantos procesos en paralelos como hilos tenga nuestra CPU. Instalación Para instalar parallel de los repositorios en Ubuntu: sudo apt-get install parallel Para el ejemplo necesitaremos el programa fastq-dump: sudo apt-get install sra..."
 }
     </script>
 
@@ -93,11 +93,19 @@
 <h2 id="_instalaci_n">Instalación</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Para instalarlo de los repositorios en Ubuntu:</p>
+<p>Para instalar <em>parallel</em> de los repositorios en Ubuntu:</p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre>sudo apt-get install parallel</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Para el ejemplo necesitaremos el programa <em>fastq-dump</em>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>sudo apt-get install sra-toolkit</pre>
 </div>
 </div>
 </div>
@@ -108,12 +116,17 @@
 <div class="paragraph">
 <p>El siguiente ejemplo muestra como convertir a FASTQ en paralelo tantos ficheros SRA como hilos tenga la CPU, quedando el resto en cola. Cuando una conversión termina, se inicia otra que estaba en cola.</p>
 </div>
+<div class="listingblock">
+<div class="content">
+<pre>ls *.sra | parallel -j+0 fastq-dump</pre>
+</div>
+</div>
 <div class="paragraph">
 <p>Si añadimos <strong><em>--eta</em></strong> y <strong><em>--progress</em></strong> podremos estimar el tiempo restante y seguir el avance de la cola, respectivamente.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>ls *.sra | parallel -j+0 --eta --progress fastq-dump --skip-technical</pre>
+<pre>ls *.sra | parallel -j+0 --eta --progress fastq-dump</pre>
 </div>
 </div>
 </div>
