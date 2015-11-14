@@ -14,7 +14,7 @@ sudo apt-get install parallel
 
 == Utilización
 
-El siguiente ejemplo muestra como convertir en paralelo tantos ficheros SRA a FASTQ como hilos tenga la CPU, quedando el resto en cola. Cuando una conversión termina, se inicia otra que estaba en cola.
+El siguiente ejemplo muestra como convertir a FASTQ en paralelo tantos ficheros SRA como hilos tenga la CPU, quedando el resto en cola. Cuando una conversión termina, se inicia otra que estaba en cola.
 
 Si añadimos *_--eta_* y *_--progress_* podremos estimar el tiempo restante y seguir el avance de la cola, respectivamente.
 ----
