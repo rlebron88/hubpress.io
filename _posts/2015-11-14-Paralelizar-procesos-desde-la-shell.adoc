@@ -3,7 +3,7 @@
 :hp-tags: paralelizar, parallel, fastq-dump, shell
 :hp-alt-title: Paralelizar procesos desde la shell
 
-Utilizaremos el programa _parallel_ para lanzar tantos procesos en paralelos como hilos tenga nuestra CPU.
+Utilizaremos el programa *_parallel_* para lanzar tantos procesos en paralelos como hilos tenga nuestra CPU.
 
 == Instalación
 Para instalar _parallel_ de los repositorios en Ubuntu:
@@ -12,7 +12,7 @@ Para instalar _parallel_ de los repositorios en Ubuntu:
 sudo apt-get install parallel
 ----
 
-Para el ejemplo necesitaremos el programa _fastq-dump_:
+Para el ejemplo necesitaremos el programa *_fastq-dump_*:
 
 ----
 sudo apt-get install sra-toolkit
