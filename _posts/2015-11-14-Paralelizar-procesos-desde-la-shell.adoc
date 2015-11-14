@@ -20,7 +20,7 @@ sudo apt-get install sra-toolkit
 
 == Utilización
 
-El siguiente ejemplo muestra como convertir a FASTQ en paralelo tantos ficheros SRA como hilos tenga la CPU, quedando el resto de ficheros en cola. Cuando una conversión termina queda un hilo libre, que es automáticamente ocupado por otra siempre que haya ficheros en cola. 
+El siguiente ejemplo muestra como convertir a FASTQ en paralelo tantos ficheros SRA como hilos tenga la CPU, quedando el resto de ficheros en cola. Cuando una conversión termina queda un hilo libre que es ocupado por otra conversión, siempre que haya ficheros en cola. De esta forma la cola va avanzando.  
 
 ----
 ls *.sra | parallel -j+0 fastq-dump
