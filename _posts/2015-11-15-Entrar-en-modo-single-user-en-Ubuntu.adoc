@@ -41,7 +41,7 @@ GRUB_CMDLINE_LINUX_DEFAULT="single"
 
 De esta forma guardamos los cambios en el fichero y salimos.
 
-*5. Por último, actualizamos el *_grub_*:
+*5. Por último, actualizamos el _grub_*:
 ----
 sudo update-grub
 ----
