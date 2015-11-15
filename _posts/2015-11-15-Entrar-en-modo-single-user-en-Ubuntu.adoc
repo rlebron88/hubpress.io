@@ -12,7 +12,7 @@ Para reiniciar Ubuntu en modo _single user_ necesitaremos dos cosas: +
 sudo apt-get install vim
 ----
 
-*2. Pertenecer al grupo _sudo_.* Si no pertenecemos a este grupo, un usuario de dicho grupo debe añadirnos al mismo ejecutando el siguiente comando:
+*2. Pertenecer al grupo _sudo_.* Si no pertenecemos a este grupo, un usuario de dicho grupo deberá añadirnos al mismo ejecutando el siguiente comando:
 ----
 sudo adduser <nuestro usuario> sudo
 ----
