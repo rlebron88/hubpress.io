@@ -3,7 +3,7 @@
 :hp-tags: reiniciar, single user, grub, shell
 :hp-alt-title: Entrar en modo single user en Ubuntu
 
-El modo _single user_ es muy útil para realizar tareas de administración de forma segura, sin interferir con otro usuarios. +
+El modo _single user_ es muy útil para realizar tareas de administración de forma segura, sin interferir con otros usuarios. +
 
 Para reiniciar Ubuntu en modo _single user_ necesitaremos dos cosas: +
 *1. Un editor de texto.* En este tutorial utilizaremos *_vim_*. Para instalarlo:
@@ -39,7 +39,7 @@ GRUB_CMDLINE_LINUX_DEFAULT="single"
 
 *4. Pulsamos la tecla _Esc_, a continuación tecleamos _:wq_ y pulsamos la tecla _Intro_.*
 
-De esta forma guardamos los cambios en el fichero y salimos.
+De esta forma guardamos los cambios en el fichero y lo cerramos.
 
 *5. Por último, actualizamos el _grub_*:
 ----
