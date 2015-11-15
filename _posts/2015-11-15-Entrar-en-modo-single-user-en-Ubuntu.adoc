@@ -63,7 +63,7 @@ Debemos editar esta línea para que quede como estaba originalmente:
 GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"
 ----
 
-*IMPORTANTE: no debemos olvidarnos de actualizar el grub:*
+*No debemos olvidarnos de actualizar el grub:*
 
 ----
 sudo update-grub
