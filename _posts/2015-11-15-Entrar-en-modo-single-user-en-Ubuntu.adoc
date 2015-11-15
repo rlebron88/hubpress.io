@@ -37,9 +37,7 @@ GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"
 GRUB_CMDLINE_LINUX_DEFAULT="single"
 ----
 
-*4. Pulsamos la tecla _Esc_, a continuación tecleamos _:wq_ y pulsamos la tecla _Intro_.*
-
-De esta forma guardamos los cambios en el fichero y lo cerramos.
+*4. Guardamos los cambios y cerramos el fichero:* pulsamos la tecla _Esc_, a continuación tecleamos _:wq_ y pulsamos la tecla _Intro_.
 
 *5. Por último, actualizamos el _grub_*:
 ----
