@@ -17,11 +17,54 @@ sudo adduser <nuestro usuario> sudo
 
 == Activar el inicio en modo single user
 
-Abrimos una terminal y ejecutamos:
+*1. Abrimos una terminal y ejecutamos:*
 
 ----
 sudo vim /etc/default/grub
 ----
 
+*2. Dentro de este fichero buscamos la siguiente línea:*
 
+----
+GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"
+----
 
+*3. Pulsamos la tecla _i_ para habilitar la edición y modificamos la línea anterior para que quede así:*
+
+----
+GRUB_CMDLINE_LINUX_DEFAULT="single"
+----
+
+*4. Pulsamos la tecla _Esc_, a continuación tecleamos _:wq_ y pulsamos la tecla _Intro_.*
+
+De esta forma guardamos los cambios en el fichero y salimos.
+
+*5. Por último, actualizamos el *_grub_*:*
+----
+sudo update-grub
+----
+
+Y ya podemos reiniciar en modo _single user_:
+----
+sudo reboot
+----
+
+== Desactivar el inicio en modo single user
+
+Repetimos todos los pasos del apartado anterior, salvo que ahora la línea que hay que buscar es:
+
+----
+GRUB_CMDLINE_LINUX_DEFAULT="single"
+----
+
+Debemos editar esta línea para que quede como estaba originalmente:
+
+----
+GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"
+----
+
+*IMPORTANTE: no debemos olvidarnos de actualizar el grub:*
+
+----
+sudo update-grub
+----
