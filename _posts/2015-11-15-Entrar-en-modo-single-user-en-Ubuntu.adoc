@@ -1,0 +1,27 @@
+= Una forma sencilla de reiniciar en modo single user
+:published_at: 2015-11-15
+:hp-tags: reiniciar, single user, grub, shell
+:hp-alt-title: Entrar en modo single user en Ubuntu
+
+Para reiniciar Ubuntu en modo _single user_ necesitaremos dos cosas: +
+*1. Un editor de texto.* En este tutorial utilizaremos *_vim_*. Para instalarlo:
+
+----
+sudo apt-get install vim
+----
+
+*2. Pertenecer al grupo _sudo_.* Si no pertenecemos a este grupo, un usuario de dicho grupo debe añadirnos al mismo ejecutando el siguiente comando:
+----
+sudo adduser <nuestro usuario> sudo
+----
+
+== Activar el inicio en modo single user
+
+Abrimos una terminal y ejecutamos:
+
+----
+sudo vim /etc/default/grub
+----
+
+
+
