@@ -7,7 +7,7 @@ Supongamos que queremos mover todo el contenido de un directorio a otro. Podemos
 ----
 mv <directorio de origen>/* <directorio de destino>/
 ----
-Sin embargo, si ejecutamos este comando con las opciones de la shell por defecto los archivos ocultos no se moveran y permanecerán en el directorio de origen. Esto podemos comprobarlo de la siguiente manera:
+Sin embargo, si ejecutamos este comando con las opciones por defecto de la shell los archivos ocultos no se moveran y permanecerán en el directorio de origen. Esto podemos comprobarlo de la siguiente manera:
 ----
 ls -a <directorio de origen>
 ----
