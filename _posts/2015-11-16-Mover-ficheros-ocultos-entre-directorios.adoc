@@ -25,7 +25,7 @@ mv <directorio de origen>/* <directorio de destino>
 ----
 
 Y nuevamente lo comprobamos:
----
+----
 ls -a <directorio de origen>
----
+----
 Veremos que ahora el directorio de origen está realmente vacío.
