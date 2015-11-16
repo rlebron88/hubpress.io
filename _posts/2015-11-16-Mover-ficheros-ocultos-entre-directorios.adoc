@@ -3,7 +3,7 @@
 :hp-tags: mover, ficheros ocultos, shell
 :hp-alt-title: Mover ficheros ocultos entre directorios
 
-Supongamos que queremos mover todo el contenido de un directorio a otro. Para ello podemos utilizar el comando *_mv_*:
+Supongamos que queremos mover todo el contenido de un directorio a otro. Podemos utilizar el comando *_mv_*:
 ----
 mv <directorio de origen>/* <directorio de destino>/
 ----
