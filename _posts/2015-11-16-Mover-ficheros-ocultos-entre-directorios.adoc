@@ -1,0 +1,31 @@
+= Mover todos los ficheros de un directorio a otro, incluidos los ocultos
+:published_at: 2015-11-16
+:hp-tags: mover, ficheros ocultos, shell
+:hp-alt-title: Mover ficheros ocultos entre directorios
+
+Supongamos que queremos mover todo el contenido de un directorio a otro. Para ello podemos utilizar el comando *_mv_*:
+----
+mv <directorio de origen>/* <directorio de destino>/
+----
+Sin embargo, si ejecutamos este comando con las opciones de la shell por defecto los archivos ocultos no se moveran y permanecerán en el directorio de origen. Esto podemos comprobarlo de la siguiente manera:
+----
+ls -a <directorio de origen>
+----
+Para mover todos los ficheros, incluidos los ocultos, deberemos activar la opción *_dotglob_* de _bash_:
+----
+shopt -s dotglob
+----
+Si además queremos evitar que nos devuelva un error en el caso de que intentemos mover el contenido de un directorio que realmente está vacío, podemos activar la opción *_nullglob_*:
+----
+shopt -s nullglob
+----
+Ahora ya podemos mover el contenido sin tener que preocuparnos de que se nos queden atrás ficheros ocultos:
+----
+mv <directorio de origen>/* <directorio de destino>
+----
+
+Y nuevamente lo comprobamos:
+---
+ls -a <directorio de origen>
+---
+Veremos que ahora el directorio de origen está realmente vacío.
