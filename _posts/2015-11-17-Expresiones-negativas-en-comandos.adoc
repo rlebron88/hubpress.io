@@ -1,0 +1,6 @@
+= Comandos que se vuelven negativos
+:published_at: 2015-11-17
+:hp-tags: comandos negativos, grep, shell
+:hp-alt-title: Expresiones negativas en comandos
+
+cat, more, less, ls, cp, mv, rm, rmdir, locate, find, grep
