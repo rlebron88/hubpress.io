@@ -3,4 +3,36 @@
 :hp-tags: comandos negativos, grep, shell
 :hp-alt-title: Expresiones negativas en comandos
 
-cat, more, less, ls, cp, mv, rm, rmdir, locate, find, grep
+Los comandos *_cp_*, *_mv_*, *_rm_*, *_rmdir_*, *_cat_*, *_more_*, *_less_*, *_ls_*, *_locate_* y *_find_* se pueden utilizar sobre todos los ficheros, excepto los que se indiquen:
+
+----
+rm !(*.bam)
+----
+
+El comando anterior elimina todos los ficheros que *no* terminan en *.bam*. Basta con añadir *!* antes de la expresión y encerrar esta entre *paréntesis*. +
+
+Veamos un ejemplo un poco más complejo:
+
+----
+find !(*.fa|*.fasta|*.fq|*.fastq)
+----
+
+Donde el carácter *|* es el operador lógico *OR*. Este comando busca recursivamente en el directorio de trabajo todos los fichero que *no* terminan en *.fa*, *.fasta*, *.fq* o *.fastq*, es decir, todos los fichero que *no* son FASTA ni FASTQ.
+
+Y ahora un ejemplo dentro de un bucle *for*:
+
+----
+for file in $(find !(*.fa|*.fasta|*.fq|*.fastq))
+    do
+        echo $(ls -s $file | grep -v '^total')
+    done
+----
+
+Expliquemos este ejemplo línea a línea:
+
+* La primera línea dice, literalmente, _"para cada elemento (file) de la lista de ficheros que no acaban en .fa, .fasta, .fq ni .fastq devuelta por find..."_.
+* _"Haz lo siguiente"_. La segunda línea marca el inicio del bloque de código que se repite en cada iteración.
+* _"Imprime el nombre y el tamaño de cada elemento (file)"_. El comando *_ls -s_* no solo lista los ficheros y sus tamaños, sino que también muestra información de los subdirectorios (en realidad los directorios también son ficheros en UNIX). Para filtrar las líneas impresas correspondientes a los subdirectorios utilizamos *_grep_*. Usar la opción *_-v_* de _grep_ es equivalente a utilizar *!* con otros comandos: con _grep_ muestra las línea que *no* cumplen la expresión, en este caso que no empiezan por _total_.
+* _"Hecho"_. Termina el bloque de código que se repite en cada iteración.
+
+
