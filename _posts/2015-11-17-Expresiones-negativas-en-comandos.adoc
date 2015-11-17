@@ -3,7 +3,7 @@
 :hp-tags: comandos negativos, grep, shell
 :hp-alt-title: Expresiones negativas en comandos
 
-Los comandos *_cp_*, *_mv_*, *_rm_*, *_rmdir_*, *_cat_*, *_more_*, *_less_*, *_ls_*, *_locate_* y *_find_* se pueden utilizar sobre todos los ficheros, excepto los que se indiquen:
+Los comandos *_cp_*, *_mv_*, *_rm_*, *_rmdir_*, *_cat_*, *_more_*, *_less_*, *_ls_*, *_locate_* y *_find_* se pueden utilizar de forma "negativa": es decir, sobre todos los ficheros excepto los que se indiquen.
 
 ----
 rm !(*.bam)
