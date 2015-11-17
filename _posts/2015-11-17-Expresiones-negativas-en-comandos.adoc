@@ -17,7 +17,7 @@ Veamos un ejemplo un poco más complejo:
 find !(*.fa|*.fasta|*.fq|*.fastq)
 ----
 
-Donde el carácter *|* es el operador lógico *OR*. Este comando busca recursivamente en el directorio de trabajo todos los ficheros que *no* terminan en *.fa*, *.fasta*, *.fq* o *.fastq*, es decir, todos los fichero que *no* son FASTA ni FASTQ.
+Donde el carácter *|* es el operador lógico *OR*. Este comando busca recursivamente en el directorio de trabajo todos los ficheros que *no* terminan en *.fa*, *.fasta*, *.fq* o *.fastq*, es decir, todos los ficheros que *no* son FASTA ni FASTQ.
 
 Y ahora un ejemplo dentro de un bucle *for*:
 
