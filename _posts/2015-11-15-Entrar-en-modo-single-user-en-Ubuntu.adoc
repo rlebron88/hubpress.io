@@ -1,6 +1,6 @@
 = Una forma sencilla de reiniciar en modo single user
 :published_at: 2015-11-15
-:hp-tags: reiniciar, single user, grub, shell
+:hp-tags: single user, grub
 :hp-alt-title: Entrar en modo single user en Ubuntu
 
 El modo _single user_ es muy útil para realizar tareas de administración de forma segura, sin interferir con otros usuarios. +
