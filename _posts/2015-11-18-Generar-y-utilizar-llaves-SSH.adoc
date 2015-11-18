@@ -1,0 +1,36 @@
+= ¿Estás harto de escribir tu contraseña en SSH o rsync? ¡Este es tu post!
+:published_at: 2015-11-18
+:hp-tags: ssh, rync
+:hp-alt-title: Generar y utilizar llaves SSH
+
+¿Utilizas decenas de veces al día SSH? ¿Trabajas con varios servidores y en cada uno tienes una contraseña distinta? ¿Te gustaría utilizar rsync en el cron y no sabes cómo automatizarlo? ¡Las *llaves SSH* son lo que necesitas!
+
+== Cómo obtener mis llaves SSH 
+
+Abre una terminal en el cliente SSH y ejecuta:
+
+----
+ssh-keygen
+----
+
+Te preguntará en que fichero quieres guardar tu *llave privada* (puedes usar la opción por defecto). Usando como base el nombre del fichero de la llave privada generará también la *llave pública*, con la extensión *.pub*. +
+
+A continuación te preguntará una frase de contraseña para tus llaves. Puedes dejarla en blanco y pulsar _Intro_. Si escribes una frase de contraseña, deberás volver a escribirla cada vez que uses SSH o rsync.
+
+== Utilizar la llave pública
+
+Ya tenemos nuestras llaves. Ahora debemos copiar tu llave pública en el servidor SSH. Ejecuta:
+
+----
+ssh-copy-id -i <fichero .pub> <usuario>@<servidor>
+----
+
+O si has dejado la opción por defecto para el nombre de las llaves:
+
+----
+ssh-copy-id <usuario>@<servidor>
+----
+
+Ahora nos pedirá la contraseña de tu usuario en el servidor. Una vez introducida correctamente, podremos utilizar SSH y rync para conectarnos a este servidor desde el cliente sin introducir la contraseña.
+
+
