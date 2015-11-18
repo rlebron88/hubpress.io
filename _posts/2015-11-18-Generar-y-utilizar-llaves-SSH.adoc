@@ -7,7 +7,7 @@
 
 == Cómo obtener mis llaves SSH 
 
-Abre una terminal en el cliente SSH y ejecuta:
+Abre una terminal en el *cliente SSH* y ejecuta:
 
 ----
 ssh-keygen
@@ -19,7 +19,7 @@ A continuación te preguntará una frase de contraseña para tus llaves. Puedes 
 
 == Utilizar la llave pública
 
-Ya tenemos nuestras llaves. Ahora debemos copiar tu llave pública en el servidor SSH. Ejecuta:
+Ya tenemos nuestras llaves. Ahora debemos copiar tu llave pública en el *servidor SSH*. Ejecuta:
 
 ----
 ssh-copy-id -i <fichero .pub> <usuario>@<servidor>
