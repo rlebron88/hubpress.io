@@ -1,6 +1,6 @@
 = Comandos que se vuelven negativos
 :published_at: 2015-11-17
-:hp-tags: patrones, bucles, grep
+:hp-tags: patrón, bucle, grep
 :hp-alt-title: Patrones negativos en comandos
 
 Los comandos *_cp_*, *_mv_*, *_rm_*, *_rmdir_*, *_cat_*, *_more_*, *_less_*, *_ls_*, *_locate_* y *_find_* pueden utilizar patrones negativos.
