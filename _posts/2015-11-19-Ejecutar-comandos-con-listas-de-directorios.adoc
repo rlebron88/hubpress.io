@@ -1,6 +1,6 @@
 = Cómo aplicar un comando solo a los directorios 
 :published_at: 2015-11-19
-:hp-tags: directorios, bucles
+:hp-tags: directorio, bucle
 :hp-alt-title: Ejecutar comandos con listas de directorios
 
 A veces resulta útil aplicar un comando solo a los directorios, ignorando a los ficheros. Por ejemplo: +
