@@ -23,7 +23,7 @@
     <meta property="og:description" content="Los comandos cp, mv, rm, rmdir, cat, more, less, ls, locate y find pueden utilizar expresiones negativas. rm !(*.bam) El comando anterior elimina todos los ficheros que no terminan en .bam. Basta con añadir ! antes de la expresión y encerrar..." />
     <meta property="og:url" content="https://rlebron88.github.io/2015/11/17/Expresiones-negativas-en-comandos.html" />
     <meta property="article:published_time" content="2015-11-16T23:00:00.000Z" />
-    <meta property="article:modified_time" content="2015-11-17T17:23:00.358Z" />
+    <meta property="article:modified_time" content="2015-11-19T16:30:35.579Z" />
     <meta property="article:tag" content="expresiones" />
     <meta property="article:tag" content="bucles" />
     <meta property="article:tag" content="grep" />
@@ -48,7 +48,7 @@
     "headline": "Comandos que se vuelven negativos",
     "url": "https://rlebron88.github.io/2015/11/17/Expresiones-negativas-en-comandos.html",
     "datePublished": "2015-11-16T23:00:00.000Z",
-    "dateModified": "2015-11-17T17:23:00.358Z",
+    "dateModified": "2015-11-19T16:30:35.579Z",
     "keywords": "expresiones,  bucles,  grep",
     "description": "Los comandos cp, mv, rm, rmdir, cat, more, less, ls, locate y find pueden utilizar expresiones negativas. rm !(*.bam) El comando anterior elimina todos los ficheros que no terminan en .bam. Basta con añadir ! antes de la expresión y encerrar..."
 }
@@ -110,9 +110,9 @@
 <div class="listingblock">
 <div class="content">
 <pre>for file in $(find !(*.fa|*.fasta|*.fq|*.fastq))
-    do
-        echo $(ls -s $file | grep -v '^total')
-    done</pre>
+do
+    echo $(ls -s $file | grep -v '^total')
+done</pre>
 </div>
 </div>
 <div class="paragraph">
