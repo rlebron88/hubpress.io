@@ -1,0 +1,12 @@
+= Cómo saber si el comando anterior terminó correctamente
+:published_at: 2015-11-20
+:hp-tags: código de error, comando
+:hp-alt-title: Ver el código de error del comando anterior
+
+En la misma terminal en la que ha terminado el comando, ejecuta:
+
+----
+echo $?
+----
+
+Si devuelve *0* es que el comando anterior finalizó correctamente. Si el valor es cualquier otro significa que ocurrió un error. Dependiendo del tipo de error el valor será distinto. Anota el código de error y búscalo en la documentación del programa o consulta a los desarrolladores del programa para saber porqué ha fallado.
