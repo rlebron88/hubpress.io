@@ -23,9 +23,9 @@ Y ahora un ejemplo dentro de un bucle *for*:
 
 ----
 for file in $(find !(*.fa|*.fasta|*.fq|*.fastq))
-    do
-        echo $(ls -s $file | grep -v '^total')
-    done
+do
+    echo $(ls -s $file | grep -v '^total')
+done
 ----
 
 Expliquemos este ejemplo línea a línea:
