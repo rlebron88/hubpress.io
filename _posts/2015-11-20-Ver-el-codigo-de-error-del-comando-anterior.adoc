@@ -9,4 +9,6 @@ En la misma terminal en la que ha terminado el comando, ejecuta:
 echo $?
 ----
 
-Si devuelve *0* es que el comando anterior finalizó correctamente. Si el valor es cualquier otro significa que ocurrió un error. Dependiendo del tipo de error el valor será distinto. Anota el código de error y búscalo en la documentación del programa o consulta a los desarrolladores del programa para saber porqué ha fallado.
+Si devuelve *0* es que el comando anterior finalizó correctamente. Si el valor es cualquier otro significa que ocurrió un error. Dependiendo del tipo de error el valor será distinto. Por ejemplo, *127* significa que no se han encontrado un comando con ese nombre, mientras que *130* significa que se ha cancelado el comando presionando _Control-C_. +
+
+Anota el código de error y búscalo en la documentación del programa o consulta a los desarrolladores del programa para saber porqué ha fallado.
