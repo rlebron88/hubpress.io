@@ -3,7 +3,9 @@
 :hp-tags: manipular cadenas de caracteres, ruta de fichero
 :hp-alt-title: Extraer y sustituir partes de rutas
 
-A veces necesitamos obtener o sustituir partes de una ruta de fichero para automatizar procesos con un _script_. A continuación mostraremos cómo obtener el nombre del fichero, su extensión y el subdirectorio en el que se encuentra, y cómo sustituir subcadenas de caracteres dentro de la ruta. Por último, damos una breve explicación de los caracteres especiales que se utilizan para manipular cadenas de caracteres en _Bash_. 
+A veces necesitamos obtener o sustituir partes de una ruta de fichero para automatizar procesos con un _script_. +
+
+A continuación mostraremos cómo obtener el nombre del fichero, su extensión y el subdirectorio en el que se encuentra, y cómo sustituir subcadenas de caracteres dentro de la ruta. Por último, daremos una breve explicación de los caracteres especiales que se utilizan para manipular cadenas de caracteres en _Bash_. 
 
 Para todos los ejemplos utilizaremos la siguiente ruta:
 
@@ -92,8 +94,27 @@ Ahora todas las comas han sido sustituidas por tabuladores.
 
 == Explicación
 
+[cols="2*"]
+|===
+|Carácter especial |Significado
 
+|#
+|Elimina la coincidencia con el patrón *más corta* empezando por la *izquierda*. El patrón va justo después de este carácter. 
 
+|##
+|Elimina la coincidencia con el patrón *más larga* empezando por la *izquierda*. El patrón va justo después de este carácter. 
 
+|%
+|Elimina la coincidencia con el patrón *más corta* empezando por la *derecha*. El patrón va justo después de este carácter. 
 
+|%%
+|Elimina la coincidencia con el patrón *más larga* empezando por la *derecha*. El patrón va justo después de este carácter.
+
+|/
+|Reemplaza *la primera coincidencia* con el patrón empezando por la *izquierda*. El patrón va justo después de este carácter, a continuación va una barra */* y por último el valor por el cual se reemplazará el patrón.
+
+|//
+|Reemplaza *todas las coincidencias* con el patrón. El patrón va justo después de este carácter, a continuación va una barra */* y por último el valor por el cual se reemplazará el patrón.
+
+|===
 
