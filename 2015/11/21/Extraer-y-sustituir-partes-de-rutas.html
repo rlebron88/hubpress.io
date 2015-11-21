@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <title>Operaciones con la ruta de fichero en Bash</title>
+    <meta name="description" content="" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="//rlebron88.github.io/themes/Casper/favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="//rlebron88.github.io/themes/Casper/assets/css/screen.css?v=1.0.0" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" />
+
+    <link rel="canonical" href="https://rlebron88.github.io/2015/11/21/Extraer-y-sustituir-partes-de-rutas.html" />
+    
+    <meta property="og:site_name" content="Bio ✕ Info" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Operaciones con la ruta de fichero en Bash" />
+    <meta property="og:description" content="A veces necesitamos obtener o sustituir partes de una ruta de fichero para automatizar procesos con un script. A continuación mostraremos cómo obtener el nombre del fichero, su extensión y el subdirectorio en el que se encuentra, y cómo sustituir..." />
+    <meta property="og:url" content="https://rlebron88.github.io/2015/11/21/Extraer-y-sustituir-partes-de-rutas.html" />
+    <meta property="article:published_time" content="2015-11-20T23:00:00.000Z" />
+    <meta property="article:modified_time" content="2015-11-21T15:13:20.357Z" />
+    <meta property="article:tag" content="manipular cadenas de caracteres" />
+    <meta property="article:tag" content="ruta de fichero" />
+    
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Operaciones con la ruta de fichero en Bash" />
+    <meta name="twitter:description" content="A veces necesitamos obtener o sustituir partes de una ruta de fichero para automatizar procesos con un script. A continuación mostraremos cómo obtener el nombre del fichero, su extensión y el subdirectorio en el que se encuentra, y cómo sustituir..." />
+    <meta name="twitter:url" content="https://rlebron88.github.io/2015/11/21/Extraer-y-sustituir-partes-de-rutas.html" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "publisher": "Bio ✕ Info",
+    "author": {
+        "@type": "Person",
+        "name": "Ricardo Lebrón",
+        "image": "https://avatars.githubusercontent.com/u/12849129?v=3",
+        "url": "undefined/author/undefined",
+        "sameAs": "http://bioinfo2.ugr.es"
+    },
+    "headline": "Operaciones con la ruta de fichero en Bash",
+    "url": "https://rlebron88.github.io/2015/11/21/Extraer-y-sustituir-partes-de-rutas.html",
+    "datePublished": "2015-11-20T23:00:00.000Z",
+    "dateModified": "2015-11-21T15:13:20.357Z",
+    "keywords": "manipular cadenas de caracteres,  ruta de fichero",
+    "description": "A veces necesitamos obtener o sustituir partes de una ruta de fichero para automatizar procesos con un script. A continuación mostraremos cómo obtener el nombre del fichero, su extensión y el subdirectorio en el que se encuentra, y cómo sustituir..."
+}
+    </script>
+
+    <meta name="generator" content="Ghost ?" />
+    <link rel="alternate" type="application/rss+xml" title="Bio ✕ Info" href="https://rlebron88.github.io/rss" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css">
+</head>
+<body class="post-template tag-manipular-cadenas-de-caracteres tag-ruta-de-fichero">
+
+    
+
+
+<header class="main-header post-head no-cover">
+    <nav class="main-nav  clearfix">
+        <a class="back-button icon-arrow-left" href="https://rlebron88.github.io">Home</a>
+        <!-- <a class="subscribe-button icon-feed" href="https://rlebron88.github.io/rss/">Subscribe</a> -->
+    </nav>
+</header>
+
+<main class="content" role="main">
+
+    <article class="post tag-manipular-cadenas-de-caracteres tag-ruta-de-fichero">
+
+        <header class="post-header">
+            <h1 class="post-title">Operaciones con la ruta de fichero en Bash</h1>
+            <section class="post-meta">
+                <time class="post-date" datetime="2015-11-21">21 November 2015</time>  on <a href="https://rlebron88.github.io/tag/manipular-cadenas-de-caracteres">manipular cadenas de caracteres</a>, <a href="https://rlebron88.github.io/tag/ruta-de-fichero"> ruta de fichero</a>
+            </section>
+        </header>
+
+        <section class="post-content">
+            <div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>A veces necesitamos obtener o sustituir partes de una ruta de fichero para automatizar procesos con un <em>script</em>.<br></p>
+</div>
+<div class="paragraph">
+<p>A continuación mostraremos cómo obtener el nombre del fichero, su extensión y el subdirectorio en el que se encuentra, y cómo sustituir subcadenas de caracteres dentro de la ruta. Por último, daremos una breve explicación de los caracteres especiales que se utilizan para manipular cadenas de caracteres en <em>Bash</em>.</p>
+</div>
+<div class="paragraph">
+<p>Para todos los ejemplos utilizaremos la siguiente ruta:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>path=/path/to/file.ext</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>La variable <em>path</em> contiene dicha ruta. Puede ver su contenido así:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>echo -e $path</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_obtener_el_nombre_de_fichero">Obtener el nombre de fichero</h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="content">
+<pre>file=${path##*/}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>La variable <em>file</em> contiene el nombre de fichero:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>echo -e $file</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_obtener_la_extensi_n_de_fichero">Obtener la extensión de fichero</h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="content">
+<pre>ext=${path##*.}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>La variable <em>ext</em> contiene la extensión de fichero:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>echo -e $ext</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_obtener_el_directorio_donde_se_halla_el_fichero">Obtener el directorio donde se halla el fichero</h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="content">
+<pre>dir=${path%/*}
+subdir=${dir##*/}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>La variable <em>dir</em> contiene la ruta completa de directorios hasta el fichero:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>echo -e $dir</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>La variable <em>subdir</em> contiene el nombre del subdirectorio donde se halla el fichero:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>echo -e $subdir</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_sustituciones_en_la_ruta">Sustituciones en la ruta</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Para explicar la sustituciones utilizaremos este ejemplo:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>data="chr1,100,200,0.5"</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>El patrón que vamos a buscar es <strong><em>,</em></strong> y lo reemplazaremos por un tabulador (<strong><em>\t</em></strong>, que escribiremos como <strong><em>\\t</em></strong> en la expressión por tratarse de un carácter escapado).<br></p>
+</div>
+<div class="paragraph">
+<p>Para sustituir solo la primera coincidencia con el patrón:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>data=${data/,/\\t}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Vemos que solo la primera coma se ha reemplazado por un tabulador:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>echo -e $data</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Para sustituir todas las coincidencias:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>echo -e $data</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Ahora todas las comas han sido sustituidas por tabuladores.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_explicaci_n">Explicación</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Carácter especial</th>
+<th class="tableblock halign-left valign-top">Significado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">#</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Elimina la coincidencia con el patrón <strong>más corta</strong> empezando por la <strong>izquierda</strong>. El patrón va justo después de este carácter.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">##</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Elimina la coincidencia con el patrón <strong>más larga</strong> empezando por la <strong>izquierda</strong>. El patrón va justo después de este carácter.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Elimina la coincidencia con el patrón <strong>más corta</strong> empezando por la <strong>derecha</strong>. El patrón va justo después de este carácter.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">%%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Elimina la coincidencia con el patrón <strong>más larga</strong> empezando por la <strong>derecha</strong>. El patrón va justo después de este carácter.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Reemplaza <strong>la primera coincidencia</strong> con el patrón empezando por la <strong>izquierda</strong>. El patrón va justo después de este carácter, a continuación va una barra <strong>/</strong> y por último el valor por el cual se reemplazará el patrón.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">//</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Reemplaza <strong>todas las coincidencias</strong> con el patrón. El patrón va justo después de este carácter, a continuación va una barra <strong>/</strong> y por último el valor por el cual se reemplazará el patrón.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+        </section>
+
+        <footer class="post-footer">
+
+
+            <figure class="author-image">
+                <a class="img" href="" style="background-image: url(https://avatars.githubusercontent.com/u/12849129?v=3)"><span class="hidden">Ricardo Lebrón's Picture</span></a>
+            </figure>
+
+            <section class="author">
+                <h4><a href="">Ricardo Lebrón</a></h4>
+
+                    <p>Read <a href="">more posts</a> by this author.</p>
+                <div class="author-meta">
+                    <span class="author-location icon-location">Granada, Spain</span>
+                    <span class="author-link icon-link"><a href="http://bioinfo2.ugr.es">http://bioinfo2.ugr.es</a></span>
+                </div>
+            </section>
+
+
+            <section class="share">
+                <h4>Share this post</h4>
+                <a class="icon-twitter" href="https://twitter.com/share?text=Operaciones%20con%20la%20ruta%20de%20fichero%20en%20Bash&amp;url=https://rlebron88.github.io/2015/11/21/Extraer-y-sustituir-partes-de-rutas.html"
+                    onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <span class="hidden">Twitter</span>
+                </a>
+                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://rlebron88.github.io/2015/11/21/Extraer-y-sustituir-partes-de-rutas.html"
+                    onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <span class="hidden">Facebook</span>
+                </a>
+                <a class="icon-google-plus" href="https://plus.google.com/share?url=https://rlebron88.github.io/2015/11/21/Extraer-y-sustituir-partes-de-rutas.html"
+                   onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <span class="hidden">Google+</span>
+                </a>
+            </section>
+
+        </footer>
+
+
+    </article>
+
+</main>
+
+
+
+    <footer class="site-footer clearfix">
+        <section class="copyright"><a href="https://rlebron88.github.io">Bio ✕ Info</a> &copy; 2015</section>
+        <section class="poweredby">Proudly published with <a href="http://hubpress.io">HubPress</a></section>
+    </footer>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js?v="></script> <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.min.js?v="></script> <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js?v="></script> 
+      <script type="text/javascript">
+        jQuery( document ).ready(function() {
+          // change date with ago
+          jQuery('ago.ago').each(function(){
+            var element = jQuery(this).parent();
+            element.html( moment(element.text()).fromNow());
+          });
+        });
+
+        hljs.initHighlightingOnLoad();      
+      </script>
+
+    <script type="text/javascript" src="//rlebron88.github.io/themes/Casper/assets/js/jquery.fitvids.js?v=1.0.0"></script>
+    <script type="text/javascript" src="//rlebron88.github.io/themes/Casper/assets/js/index.js?v=1.0.0"></script>
+
+</body>
+</html>
