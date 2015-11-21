@@ -87,10 +87,14 @@ echo -e $data
 Para sustituir todas las coincidencias:
 
 ----
-echo -e $data
+data=${data//,/\\t}
 ----
 
-Ahora todas las comas han sido sustituidas por tabuladores.
+Ahora todas las comas han sido sustituidas por tabuladores:
+
+----
+echo -e $data
+----
 
 == Explicación
 
