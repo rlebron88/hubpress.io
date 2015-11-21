@@ -64,7 +64,7 @@ echo -e $subdir
 
 == Sustituciones en cadenas de caracteres
 
-Para explicar la sustituciones utilizaremos este ejemplo:
+Para explicar las sustituciones utilizaremos este ejemplo:
 
 ----
 data="chr1,100,200,0.5"
