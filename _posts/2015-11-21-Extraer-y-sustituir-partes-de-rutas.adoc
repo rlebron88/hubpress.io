@@ -5,7 +5,7 @@
 
 A veces necesitamos obtener o sustituir partes de una ruta de fichero para automatizar procesos con un _script_. +
 
-A continuación mostraremos cómo obtener el nombre del fichero, su extensión y el subdirectorio en el que se encuentra, y cómo sustituir subcadenas de caracteres dentro de la ruta. Por último, daremos una breve explicación de los caracteres especiales que se utilizan para manipular cadenas de caracteres en _Bash_. 
+A continuación mostraremos cómo obtener el nombre del fichero, su extensión y el subdirectorio en el que se encuentra a partir de una ruta, y cómo sustituir subcadenas en cadenas de caracteres. Por último, daremos una breve explicación de los caracteres especiales que se utilizan para manipular cadenas de caracteres en _Bash_. 
 
 Para los ejemplos utilizaremos la siguiente ruta:
 
@@ -62,7 +62,7 @@ La variable _subdir_ contiene el nombre del subdirectorio donde se halla el fich
 echo -e $subdir
 ----
 
-== Sustituciones en la ruta
+== Sustituciones en cadenas de caracteres
 
 Para explicar la sustituciones utilizaremos este ejemplo:
 
