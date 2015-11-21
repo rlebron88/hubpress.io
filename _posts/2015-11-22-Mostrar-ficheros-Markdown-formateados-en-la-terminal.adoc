@@ -12,7 +12,6 @@ Si bien los ficheros *_Markdown_* (.md) se pueden leer con cualquier visor de te
 ----
 git clone https://github.com/tj/mad.git
 cd mad
-sudo make
 sudo make install
 ----
 
