@@ -33,8 +33,6 @@ strong: 1;4;35m
 em: 1;35m
 ----
 
-Guarda los cambios. +
-
 == Utilización
 
 ----
