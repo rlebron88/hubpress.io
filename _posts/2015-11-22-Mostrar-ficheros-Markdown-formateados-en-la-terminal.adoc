@@ -1,11 +1,11 @@
 = Leer ficheros Markdown con colores y subrayado en la terminal
 :published_at: 2015-11-22
-:hp-tags: Markdown, mad
+:hp-tags: Markdown, mad(1)
 :hp-alt-title: Mostrar ficheros Markdown formateados en la terminal 
 
 Si bien los ficheros *_Markdown_* (.md) se pueden leer con cualquier visor de texto, la mayoría no los muestran como texto con formato sino como texto plano. +
 
-*_mad_* es un visor de _Markdown_ fácil de instalar y de utilizar, capaz de formatearlos con colores y subrayado.
+*_mad(1)_* es un visor de _Markdown_ fácil de instalar y de utilizar, capaz de formatearlos con colores y subrayado.
 
 == Instalación
 
