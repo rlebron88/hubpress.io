@@ -1,6 +1,6 @@
 = Operaciones con la ruta de fichero en Bash
 :published_at: 2015-11-21
-:hp-tags: cadena de caracteres, ruta de fichero
+:hp-tags: ruta de fichero, cadena de caracteres
 :hp-alt-title: Extraer y sustituir partes de rutas
 
 A veces necesitamos obtener o sustituir partes de una ruta de fichero para automatizar procesos con un _script_. +
