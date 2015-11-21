@@ -70,7 +70,7 @@ Para explicar la sustituciones utilizaremos este ejemplo:
 data="chr1,100,200,0.5"
 ----
 
-El patrón que vamos a buscar es *_,_* y lo reemplazaremos por un tabulador (*_\t_*, que escribiremos como *_\\t_* en la expressión por tratarse de un carácter escapado). +
+El patrón que vamos a buscar es una coma (*_,_*) y lo reemplazaremos por un tabulador (*_\t_*, que escribiremos como *_\\t_* en la expressión por tratarse de un carácter escapado). +
 
 Para sustituir solo la primera coincidencia con el patrón:
 
