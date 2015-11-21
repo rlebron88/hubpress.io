@@ -1,0 +1,99 @@
+= Operaciones con la ruta de fichero en Bash
+:published_at: 2015-11-21
+:hp-tags: manipular cadenas de caracteres, ruta de fichero
+:hp-alt-title: Extraer y sustituir partes de rutas
+
+A veces necesitamos obtener o sustituir partes de una ruta de fichero para automatizar procesos con un _script_. A continuación mostraremos cómo obtener el nombre del fichero, su extensión y el subdirectorio en el que se encuentra, y cómo sustituir subcadenas de caracteres dentro de la ruta. Por último, damos una breve explicación de los caracteres especiales que se utilizan para manipular cadenas de caracteres en _Bash_. 
+
+Para todos los ejemplos utilizaremos la siguiente ruta:
+
+----
+path=/path/to/file.ext
+----
+
+La variable _path_ contiene dicha ruta. Puede ver su contenido así:
+
+----
+echo -e $path
+----
+
+== Obtener el nombre de fichero
+
+----
+file=${path##*/}
+----
+
+La variable _file_ contiene el nombre de fichero:
+
+----
+echo -e $file
+----
+
+== Obtener la extensión de fichero
+
+----
+ext=${path##*.}
+----
+
+La variable _ext_ contiene la extensión de fichero:
+
+----
+echo -e $ext
+----
+
+== Obtener el directorio donde se halla el fichero
+
+----
+dir=${path%/*}
+subdir=${dir##*/}
+----
+
+La variable _dir_ contiene la ruta completa de directorios hasta el fichero:
+
+----
+echo -e $dir
+----
+
+La variable _subdir_ contiene el nombre del subdirectorio donde se halla el fichero:
+
+----
+echo -e $subdir
+----
+
+== Sustituciones en la ruta
+
+Para explicar la sustituciones utilizaremos este ejemplo:
+
+----
+data="chr1,100,200,0.5"
+----
+
+El patrón que vamos a buscar es *_,_* y lo reemplazaremos por un tabulador (*_\t_*, que escribiremos como *_\\t_* en la expressión por tratarse de un carácter escapado). +
+
+Para sustituir solo la primera coincidencia con el patrón:
+
+----
+data=${data/,/\\t}
+----
+
+Vemos que solo la primera coma se ha reemplazado por un tabulador:
+
+----
+echo -e $data
+----
+
+Para sustituir todas las coincidencias:
+
+----
+echo -e $data
+----
+
+Ahora todas las comas han sido sustituidas por tabuladores.
+
+== Explicación
+
+
+
+
+
+
