@@ -23,7 +23,7 @@
     <meta property="og:description" content="A veces necesitamos obtener o sustituir partes de una ruta de fichero para automatizar procesos con un script. A continuación mostraremos cómo obtener el nombre del fichero, su extensión y el subdirectorio en el que se encuentra a partir de..." />
     <meta property="og:url" content="https://rlebron88.github.io/2015/11/21/Extraer-y-sustituir-partes-de-rutas.html" />
     <meta property="article:published_time" content="2015-11-20T23:00:00.000Z" />
-    <meta property="article:modified_time" content="2015-11-22T21:33:28.734Z" />
+    <meta property="article:modified_time" content="2015-11-22T22:14:54.988Z" />
     <meta property="article:tag" content="ruta de fichero" />
     <meta property="article:tag" content="cadena de caracteres" />
     
@@ -47,7 +47,7 @@
     "headline": "Operaciones con la ruta de fichero en Bash",
     "url": "https://rlebron88.github.io/2015/11/21/Extraer-y-sustituir-partes-de-rutas.html",
     "datePublished": "2015-11-20T23:00:00.000Z",
-    "dateModified": "2015-11-22T21:33:28.734Z",
+    "dateModified": "2015-11-22T22:14:54.988Z",
     "keywords": "ruta de fichero,  cadena de caracteres",
     "description": "A veces necesitamos obtener o sustituir partes de una ruta de fichero para automatizar procesos con un script. A continuación mostraremos cómo obtener el nombre del fichero, su extensión y el subdirectorio en el que se encuentra a partir de..."
 }
@@ -95,7 +95,7 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>path=/path/to/file.ext</pre>
+<pre class="highlight"><code class="language-bash" data-lang="bash">path=/path/to/file.ext</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -103,7 +103,7 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>echo -e $path</pre>
+<pre class="highlight"><code class="language-bash" data-lang="bash">echo -e $path</code></pre>
 </div>
 </div>
 </div>
@@ -113,7 +113,7 @@
 <div class="sectionbody">
 <div class="listingblock">
 <div class="content">
-<pre>file=${path##*/}</pre>
+<pre class="highlight"><code class="language-bash" data-lang="bash">file=${path##*/}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -121,7 +121,7 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>echo -e $file</pre>
+<pre class="highlight"><code class="language-bash" data-lang="bash">echo -e $file</code></pre>
 </div>
 </div>
 </div>
@@ -131,7 +131,7 @@
 <div class="sectionbody">
 <div class="listingblock">
 <div class="content">
-<pre>ext=${path##*.}</pre>
+<pre class="highlight"><code class="language-bash" data-lang="bash">ext=${path##*.}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -139,7 +139,7 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>echo -e $ext</pre>
+<pre class="highlight"><code class="language-bash" data-lang="bash">echo -e $ext</code></pre>
 </div>
 </div>
 </div>
@@ -149,8 +149,8 @@
 <div class="sectionbody">
 <div class="listingblock">
 <div class="content">
-<pre>dir=${path%/*}
-subdir=${dir##*/}</pre>
+<pre class="highlight"><code class="language-bash" data-lang="bash">dir=${path%/*}
+subdir=${dir##*/}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -158,7 +158,7 @@ subdir=${dir##*/}</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>echo -e $dir</pre>
+<pre class="highlight"><code class="language-bash" data-lang="bash">echo -e $dir</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -166,7 +166,7 @@ subdir=${dir##*/}</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>echo -e $subdir</pre>
+<pre class="highlight"><code class="language-bash" data-lang="bash">echo -e $subdir</code></pre>
 </div>
 </div>
 </div>
@@ -179,7 +179,7 @@ subdir=${dir##*/}</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>data="chr1,100,200,0.5"</pre>
+<pre class="highlight"><code class="language-bash" data-lang="bash">data="chr1,100,200,0.5"</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -190,7 +190,7 @@ subdir=${dir##*/}</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>data=${data/,/\\t}</pre>
+<pre class="highlight"><code class="language-bash" data-lang="bash">data=${data/,/\\t}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -198,7 +198,7 @@ subdir=${dir##*/}</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>echo -e $data</pre>
+<pre class="highlight"><code class="language-bash" data-lang="bash">echo -e $data</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -206,7 +206,7 @@ subdir=${dir##*/}</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>data=${data//,/\\t}</pre>
+<pre class="highlight"><code class="language-bash" data-lang="bash">data=${data//,/\\t}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -214,7 +214,7 @@ subdir=${dir##*/}</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>echo -e $data</pre>
+<pre class="highlight"><code class="language-bash" data-lang="bash">echo -e $data</code></pre>
 </div>
 </div>
 </div>
