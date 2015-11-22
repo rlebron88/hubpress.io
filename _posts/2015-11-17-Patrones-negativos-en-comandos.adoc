@@ -5,28 +5,28 @@
 
 Los comandos *_cp_*, *_mv_*, *_rm_*, *_rmdir_*, *_cat_*, *_more_*, *_less_*, *_ls_*, *_locate_* y *_find_* pueden utilizar patrones negativos.
 
-----
+```bash
 rm !(*.bam)
-----
+```
 
 El comando anterior elimina todos los ficheros que *no* terminan en *.bam*. Basta con añadir *!* antes del patrón y encerrar este entre *paréntesis*. +
 
 Veamos un ejemplo un poco más complejo:
 
-----
+```bash
 find !(*.fa|*.fasta|*.fq|*.fastq)
-----
+```
 
 Donde el carácter *|* es el operador lógico *OR*. Este comando busca recursivamente en el directorio de trabajo todos los ficheros que *no* terminan en *.fa*, *.fasta*, *.fq* o *.fastq*, es decir, todos los ficheros que *no* son FASTA ni FASTQ.
 
 Y ahora un ejemplo dentro de un bucle *for*:
 
-----
+```bash
 for file in $(find !(*.fa|*.fasta|*.fq|*.fastq))
 do
     echo $(ls -s $file | grep -v '^total')
 done
-----
+```
 
 Expliquemos este ejemplo línea a línea:
 
