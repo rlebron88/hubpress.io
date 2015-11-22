@@ -3,3 +3,10 @@
 :hp-tags: FASTA, FASTQ, bioawk
 :hp-alt-title: Modificar ficheros FASTA y FASTQ con bioawk
 
+```python
+
+for var in range(0,100):
+
+line[0]
+
+```
