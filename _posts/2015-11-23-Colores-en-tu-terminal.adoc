@@ -1,0 +1,44 @@
+= ¡Da color a tu terminal!
+:published_at: 2015-11-23
+:hp-tags: ANSI escape code,color
+:hp-alt-title: Colores en tu terminal
+
+Colores vs ASCII plano
+
+Reset: \x1b[0m\n (printf) o \x1b[0m (echo -e)
+
+\x1b o \033
+
+[
+
+;
+
+1 -> brillante
+
+;
+
+3X -> color del texto
+
+4X -> color del fondo
+
+X (colores ANSI y otros):
+
+0: negro 
+
+1: rojo
+
+2: verde
+
+3: amarillo
+
+4: azul
+
+5: magenta
+
+6: cian
+
+7: blanco
+
+8: otros (colores no ANSI)
+
+	; 5 ; ()
