@@ -352,7 +352,7 @@ pre {
 pre code, tt {
     font-size: inherit;
     white-space: pre-wrap;
-    background: #F7FAFB;
+    background: transparent;
     border: none;
     padding: 0;
 }
