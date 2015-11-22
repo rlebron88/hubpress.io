@@ -3,7 +3,7 @@
 :hp-tags: FASTA, FASTQ, bioawk
 :hp-alt-title: Modificar ficheros FASTA y FASTQ con bioawk
 
-```shell
+```sh
 for var in $(ls)
 do
   echo $var
