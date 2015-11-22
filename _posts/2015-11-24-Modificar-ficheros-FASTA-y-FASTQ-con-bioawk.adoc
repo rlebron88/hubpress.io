@@ -1,5 +1,5 @@
 = Extraer y eliminar secuencias de un fichero Multi-FASTA / FASTQ
-:published_at: 2015-11-23
+:published_at: 2015-11-24
 :hp-tags: FASTA, FASTQ, bioawk
 :hp-alt-title: Modificar ficheros FASTA y FASTQ con bioawk
 
