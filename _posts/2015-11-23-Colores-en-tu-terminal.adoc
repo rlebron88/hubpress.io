@@ -103,3 +103,16 @@ texto: tput setaf [0-7]
 fondo: tput setab [0-7]
 reset: tput sgr0
 echo "$(tput setab 4)$(tput setaf 3)HOLA$(tput sgr0)"
+
+----
+#!/bin/bash
+echo " B0  B1  B2  B3  B4  B5  B6  B7 "
+for af in {0..7}
+do
+  for ab in {0..7}
+  do
+    printf "$(tput setaf $af)$(tput setab $ab) F$af "
+  done
+  echo "$(tput sgr0)"
+done
+----
