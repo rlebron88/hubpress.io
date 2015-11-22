@@ -41,9 +41,19 @@ X (colores ANSI y otros):
 
 8: otros (colores no ANSI)
 
+_Michael Plotke_ link:http://bitmote.com/index.php?post/2012/11/19/Using-ANSI-Color-Codes-to-Colorize-Your-Bash-Prompt-on-Linux[aquí] Licencia link:http://creativecommons.org/licenses/by/3.0/[CC BY]
+----
+
+----
+
 	; 5 ; (paleta de 256 colores)
     	XXX (color)
-    
+
+_Daniel Crisman_ link:http://www.tldp.org/HOWTO/Bash-Prompt-HOWTO/x329.html[aquí] Licencia link:http://www.gnu.org/copyleft/fdl.html[GFDL]
+----
+
+----
+        
     ; 2 ; (color de 24 bits o "color verdadero")
     	RRR (rojo)
         GGG (verde)
