@@ -8,9 +8,9 @@ Utilizaremos el programa *_parallel_* para lanzar tantos procesos en paralelos c
 == Instalación
 Para instalar _parallel_ de los repositorios en Ubuntu:
 
-```
+----
 sudo apt-get install parallel
-```
+----
 
 Para el ejemplo necesitaremos el programa *_fastq-dump_*:
 
