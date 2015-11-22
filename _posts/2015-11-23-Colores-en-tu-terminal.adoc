@@ -102,7 +102,6 @@ link:http://www.w3schools.com/tags/ref_colorpicker.asp[HTML Color Picker] de lin
 texto: tput setaf [0-7]
 fondo: tput setab [0-7]
 reset: tput sgr0
-echo "$(tput setab 4)$(tput setaf 3)HOLA$(tput sgr0)"
 
 ----
 #!/bin/bash
