@@ -9,35 +9,35 @@ Si bien los ficheros *_Markdown_* (.md) se pueden leer con cualquier visor de te
 
 == Instalación
 
-----
+```bash
 git clone https://github.com/tj/mad.git
 cd mad
 sudo make install
-----
+```
 
 == Configuración
 
 Edita el fichero *_/usr/local/etc/mad.conf_* con _vim_ o con cualquier otro editor de texto:
 
-----
+```bash
 sudo vim /usr/local/etc/mad.conf
-----
+```
 
 Debe quedar así:
 
-----
+```bash
 heading: 1;4;36m
 code: 1;33m
 strong: 1;4;35m
 em: 1;35m
-----
+```
 
 Guarda los cambios.
 
 == Utilización
 
-----
+```bash
 mad <fichero .md>
-----
+```
 
 Usa las flechas para desplazarte. Presiona la tecla _q_ para salir.
