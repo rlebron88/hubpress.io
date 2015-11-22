@@ -5,6 +5,8 @@
 
 Colores vs ASCII plano
 
+NO TODAS LAS TERMINALES SON COMPATIBLES CON TODAS LAS PALETAS DE COLORES
+
 Reset: \x1b[0m\n (printf) o \x1b[0m (echo -e)
 
 \x1b o \033
@@ -91,3 +93,4 @@ echo -e "\n"
         GGG (verde)
         BBB (azul)
         
+link:http://www.w3schools.com/tags/ref_colorpicker.asp[HTML Color Picker] de link:http://www.w3schools.com/[W3Schools]
