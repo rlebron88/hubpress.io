@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <title>¡Da color a tu terminal!</title>
+    <meta name="description" content="" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="//rlebron88.github.io/themes/Casper/favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="//rlebron88.github.io/themes/Casper/assets/css/screen.css?v=1.0.0" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" />
+
+    <link rel="canonical" href="https://rlebron88.github.io/2015/11/23/Colores-en-tu-terminal.html" />
+    
+    <meta property="og:site_name" content="Bio ✕ Info" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="¡Da color a tu terminal!" />
+    <meta property="og:description" content="Colores vs ASCII plano NO TODAS LAS TERMINALES SON COMPATIBLES CON TODAS LAS PALETAS DE COLORES Reset: \x1b[0m\n (printf) o \x1b[0m (echo -e) \x1b o \033 [ ; 1 &amp;#8594; brillante ; 3X &amp;#8594; color del texto 4X &amp;#8594; color..." />
+    <meta property="og:url" content="https://rlebron88.github.io/2015/11/23/Colores-en-tu-terminal.html" />
+    <meta property="article:published_time" content="2015-11-22T23:00:00.000Z" />
+    <meta property="article:modified_time" content="2015-11-22T20:08:23.639Z" />
+    <meta property="article:tag" content="ANSI escape code" />
+    <meta property="article:tag" content="color" />
+    <meta property="article:tag" content="tput" />
+    
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="¡Da color a tu terminal!" />
+    <meta name="twitter:description" content="Colores vs ASCII plano NO TODAS LAS TERMINALES SON COMPATIBLES CON TODAS LAS PALETAS DE COLORES Reset: \x1b[0m\n (printf) o \x1b[0m (echo -e) \x1b o \033 [ ; 1 &amp;#8594; brillante ; 3X &amp;#8594; color del texto 4X &amp;#8594; color..." />
+    <meta name="twitter:url" content="https://rlebron88.github.io/2015/11/23/Colores-en-tu-terminal.html" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "publisher": "Bio ✕ Info",
+    "author": {
+        "@type": "Person",
+        "name": "Ricardo Lebrón",
+        "image": "https://avatars.githubusercontent.com/u/12849129?v=3",
+        "url": "undefined/author/undefined",
+        "sameAs": "http://bioinfo2.ugr.es"
+    },
+    "headline": "¡Da color a tu terminal!",
+    "url": "https://rlebron88.github.io/2015/11/23/Colores-en-tu-terminal.html",
+    "datePublished": "2015-11-22T23:00:00.000Z",
+    "dateModified": "2015-11-22T20:08:23.639Z",
+    "keywords": "ANSI escape code, color, tput",
+    "description": "Colores vs ASCII plano NO TODAS LAS TERMINALES SON COMPATIBLES CON TODAS LAS PALETAS DE COLORES Reset: \\x1b[0m\\n (printf) o \\x1b[0m (echo -e) \\x1b o \\033 [ ; 1 &amp;#8594; brillante ; 3X &amp;#8594; color del texto 4X &amp;#8594; color..."
+}
+    </script>
+
+    <meta name="generator" content="Ghost ?" />
+    <link rel="alternate" type="application/rss+xml" title="Bio ✕ Info" href="https://rlebron88.github.io/rss" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css">
+</head>
+<body class="post-template tag-ANSI-escape-code tag-color tag-tput">
+
+    
+
+
+<header class="main-header post-head no-cover">
+    <nav class="main-nav  clearfix">
+        <a class="back-button icon-arrow-left" href="https://rlebron88.github.io">Home</a>
+        <!-- <a class="subscribe-button icon-feed" href="https://rlebron88.github.io/rss/">Subscribe</a> -->
+    </nav>
+</header>
+
+<main class="content" role="main">
+
+    <article class="post tag-ANSI-escape-code tag-color tag-tput">
+
+        <header class="post-header">
+            <h1 class="post-title">¡Da color a tu terminal!</h1>
+            <section class="post-meta">
+                <time class="post-date" datetime="2015-11-23">23 November 2015</time>  on <a href="https://rlebron88.github.io/tag/ANSI-escape-code">ANSI escape code</a>, <a href="https://rlebron88.github.io/tag/color">color</a>, <a href="https://rlebron88.github.io/tag/tput">tput</a>
+            </section>
+        </header>
+
+        <section class="post-content">
+            <div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Colores vs ASCII plano</p>
+</div>
+<div class="paragraph">
+<p>NO TODAS LAS TERMINALES SON COMPATIBLES CON TODAS LAS PALETAS DE COLORES</p>
+</div>
+<div class="paragraph">
+<p>Reset: \x1b[0m\n (printf) o \x1b[0m (echo -e)</p>
+</div>
+<div class="paragraph">
+<p>\x1b o \033</p>
+</div>
+<div class="paragraph">
+<p>[</p>
+</div>
+<div class="paragraph">
+<p>;</p>
+</div>
+<div class="paragraph">
+<p>1 &#8594; brillante</p>
+</div>
+<div class="paragraph">
+<p>;</p>
+</div>
+<div class="paragraph">
+<p>3X &#8594; color del texto</p>
+</div>
+<div class="paragraph">
+<p>4X &#8594; color del fondo</p>
+</div>
+<div class="paragraph">
+<p>X (colores ANSI y otros):</p>
+</div>
+<div class="paragraph">
+<p>0: negro</p>
+</div>
+<div class="paragraph">
+<p>1: rojo</p>
+</div>
+<div class="paragraph">
+<p>2: verde</p>
+</div>
+<div class="paragraph">
+<p>3: amarillo</p>
+</div>
+<div class="paragraph">
+<p>4: azul</p>
+</div>
+<div class="paragraph">
+<p>5: magenta</p>
+</div>
+<div class="paragraph">
+<p>6: cian</p>
+</div>
+<div class="paragraph">
+<p>7: blanco</p>
+</div>
+<div class="paragraph">
+<p>8: otros (colores no ANSI)</p>
+</div>
+<div class="paragraph">
+<p><em>Daniel Crisman</em> <a href="http://www.tldp.org/HOWTO/Bash-Prompt-HOWTO/x329.html">aquí</a> Licencia <a href="http://www.gnu.org/copyleft/fdl.html">GFDL</a> MODIFICADO</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>#!/bin/bash
+T='Texto'
+echo -e "\n                 40m     41m     42m     43m     44m     45m     46m     47m";
+for FGs in '    m' '   1m' '  30m' '1;30m' '  31m' '1;31m' '  32m' '1;32m' '  33m' '1;33m' '  34m' '1;34m' '  35m' '1;35m' '  36m' '1;36m' '  37m' '1;37m';
+  do FG=${FGs// /}
+  echo -en " $FGs \033[$FG  $T  "
+  for BG in 40m 41m 42m 43m 44m 45m 46m 47m;
+    do echo -en "$EINS \033[$FG\033[$BG  $T \033[0m\033[$BG \033[0m";
+  done
+  echo;
+done
+echo</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>; 5 ; (paleta de 256 colores)
+    XXX (color)</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><em>Michael Plotke</em> <a href="http://bitmote.com/index.php?post/2012/11/19/Using-ANSI-Color-Codes-to-Colorize-Your-Bash-Prompt-on-Linux">aquí</a> Licencia <a href="http://creativecommons.org/licenses/by/3.0/">CC BY</a> MODIFICADO</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>#!/bin/bash
+echo -en "\n   +  "
+for i in {0..35}; do
+  printf "%2b " $i
+done
+
+printf "\n\n %3b  " 0
+for i in {0..15}; do
+  echo -en "\033[48;5;${i}m  \033[m "
+done
+
+#for i in 16 52 88 124 160 196 232; do
+for i in {0..6}; do
+  let "i = i*36 +16"
+  printf "\n\n %3b  " $i
+  for j in {0..35}; do
+    let "val = i+j"
+    echo -en "\033[48;5;${val}m  \033[m "
+  done
+done
+
+echo -e "\n"</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>; 2 ; (color de 24 bits o "color verdadero")
+    RRR (rojo)
+    GGG (verde)
+    BBB (azul)</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><a href="http://www.w3schools.com/tags/ref_colorpicker.asp">HTML Color Picker</a> de <a href="http://www.w3schools.com/">W3Schools</a></p>
+</div>
+<div class="paragraph">
+<p>+ m al final del código de color, antes del texto</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_colores_con_tput">Colores con tput</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>texto: tput setaf [0-7]
+fondo: tput setab [0-7]
+reset: tput sgr0</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">#!/bin/bash
+echo " B0  B1  B2  B3  B4  B5  B6  B7 "
+for af in {0..7}
+do
+  for ab in {0..7}
+  do
+    printf "$(tput setaf $af)$(tput setab $ab) F$af "
+  done
+  echo "$(tput sgr0)"
+done</code></pre>
+</div>
+</div>
+</div>
+</div>
+        </section>
+
+        <footer class="post-footer">
+
+
+            <figure class="author-image">
+                <a class="img" href="" style="background-image: url(https://avatars.githubusercontent.com/u/12849129?v=3)"><span class="hidden">Ricardo Lebrón's Picture</span></a>
+            </figure>
+
+            <section class="author">
+                <h4><a href="">Ricardo Lebrón</a></h4>
+
+                    <p>Read <a href="">more posts</a> by this author.</p>
+                <div class="author-meta">
+                    <span class="author-location icon-location">Granada, Spain</span>
+                    <span class="author-link icon-link"><a href="http://bioinfo2.ugr.es">http://bioinfo2.ugr.es</a></span>
+                </div>
+            </section>
+
+
+            <section class="share">
+                <h4>Share this post</h4>
+                <a class="icon-twitter" href="https://twitter.com/share?text=%C2%A1Da%20color%20a%20tu%20terminal!&amp;url=https://rlebron88.github.io/2015/11/23/Colores-en-tu-terminal.html"
+                    onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <span class="hidden">Twitter</span>
+                </a>
+                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://rlebron88.github.io/2015/11/23/Colores-en-tu-terminal.html"
+                    onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <span class="hidden">Facebook</span>
+                </a>
+                <a class="icon-google-plus" href="https://plus.google.com/share?url=https://rlebron88.github.io/2015/11/23/Colores-en-tu-terminal.html"
+                   onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <span class="hidden">Google+</span>
+                </a>
+            </section>
+
+        </footer>
+
+
+    </article>
+
+</main>
+
+
+
+    <footer class="site-footer clearfix">
+        <section class="copyright"><a href="https://rlebron88.github.io">Bio ✕ Info</a> &copy; 2015</section>
+        <section class="poweredby">Proudly published with <a href="http://hubpress.io">HubPress</a></section>
+    </footer>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js?v="></script> <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.min.js?v="></script> <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js?v="></script> 
+      <script type="text/javascript">
+        jQuery( document ).ready(function() {
+          // change date with ago
+          jQuery('ago.ago').each(function(){
+            var element = jQuery(this).parent();
+            element.html( moment(element.text()).fromNow());
+          });
+        });
+
+        hljs.initHighlightingOnLoad();      
+      </script>
+
+    <script type="text/javascript" src="//rlebron88.github.io/themes/Casper/assets/js/jquery.fitvids.js?v=1.0.0"></script>
+    <script type="text/javascript" src="//rlebron88.github.io/themes/Casper/assets/js/index.js?v=1.0.0"></script>
+
+</body>
+</html>
