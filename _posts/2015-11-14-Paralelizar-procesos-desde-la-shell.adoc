@@ -8,43 +8,40 @@ Utilizaremos el programa *_parallel_* para lanzar tantos procesos en paralelos c
 == Instalación
 Para instalar _parallel_ de los repositorios en Ubuntu:
 
-----
+```bash
 sudo apt-get install parallel
-----
+```
 
 Para el ejemplo necesitaremos el programa *_fastq-dump_*:
 
-----
+```bash
 sudo apt-get install sra-toolkit
-----
+```
 
 == Utilización
 
 El siguiente ejemplo muestra como convertir a FASTQ en paralelo tantos ficheros SRA como hilos tenga la CPU, quedando el resto de ficheros en cola. Cuando una conversión termina queda un hilo libre que es ocupado por otra conversión, siempre que haya ficheros en cola. De esta forma la cola va avanzando.  
 
-----
+```bash
 ls *.sra | parallel -j+0 fastq-dump
-----
+```
 
 Si añadimos *_--eta_* y *_--progress_* podremos estimar el tiempo restante y seguir el avance de la cola, respectivamente.
 
-----
+```bash
 ls *.sra | parallel -j+0 --eta --progress fastq-dump
-----
+```
 
 Si queremos utilizar un número de hilos diferente, sustituimos _+0_ por dicho número. Por ejemplo,
 
-----
+```bash
 ls *.sra | parallel -j4 --eta --progress fastq-dump
-----
+```
 
 Utilizará cuatro hilos. +
 
 También podemos añadir parámetros al programa que se va a paralelizar. Por ejemplo, al programa _fastq-dump_ podemos añadirle la opción *_--split-files_* si estamos trabajando con *_paired-end reads_*:
 
-----
+```bash
 ls *.sra | parallel -j+0 --eta --progress fastq-dump --split-files
-----
-
-
-
+```
