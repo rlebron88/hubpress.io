@@ -32,7 +32,7 @@ Si añadimos *_--eta_* y *_--progress_* podremos estimar el tiempo restante y se
 ls *.sra | parallel -j+0 --eta --progress fastq-dump
 ----
 
-Si quieres utilizar un número de hilos diferente, sustituye _+0_ por dicho número. Por ejemplo,
+Si queremos utilizar un número de hilos diferente, sustituimos _+0_ por dicho número. Por ejemplo,
 
 ----
 ls *.sra | parallel -j4 --eta --progress fastq-dump
@@ -40,7 +40,7 @@ ls *.sra | parallel -j4 --eta --progress fastq-dump
 
 Utilizará cuatro hilos. +
 
-También puedes añadir parámetros al programa que se va a paralizar. Por ejemplo, al programa _fastq-dump_ podemos añadirle la opción *_--split-files_* si estamos trabajando con *_paired-end reads_*:
+También podemos añadir parámetros al programa que se va a paralelizar. Por ejemplo, al programa _fastq-dump_ podemos añadirle la opción *_--split-files_* si estamos trabajando con *_paired-end reads_*:
 
 ----
 ls *.sra | parallel -j+0 --eta --progress fastq-dump --split-files
