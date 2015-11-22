@@ -11,6 +11,20 @@ Reset: \x1b[0m\n (printf) o \x1b[0m (echo -e)
 
 \x1b o \033
 
+
+
+[cols="2*"]
+|===
+|Carácter especial |Significado
+|===
+
+
+
+
+
+
+
+
 [
 
 ;
