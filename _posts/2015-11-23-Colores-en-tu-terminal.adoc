@@ -103,7 +103,7 @@ texto: tput setaf [0-7]
 fondo: tput setab [0-7]
 reset: tput sgr0
 
-----
+```bash
 #!/bin/bash
 echo " B0  B1  B2  B3  B4  B5  B6  B7 "
 for af in {0..7}
@@ -114,4 +114,4 @@ do
   done
   echo "$(tput sgr0)"
 done
-----
+```
