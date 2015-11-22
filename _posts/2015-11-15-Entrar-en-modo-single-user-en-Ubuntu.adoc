@@ -8,63 +8,63 @@ El modo _single user_ es muy útil para realizar tareas de administración de fo
 Para reiniciar Ubuntu en modo _single user_ necesitaremos dos cosas: +
 *1. Un editor de texto.* En este tutorial utilizaremos *_vim_*. Para instalarlo:
 
-----
+```bash
 sudo apt-get install vim
-----
+```
 
 *2. Pertenecer al grupo _sudo_.* Si no pertenecemos a este grupo, un usuario de dicho grupo deberá añadirnos al mismo ejecutando el siguiente comando:
-----
+```bash
 sudo adduser <nuestro usuario> sudo
-----
+```
 
 == Activar el inicio en modo single user
 
 *1. Abrimos una terminal y ejecutamos:*
 
-----
+```bash
 sudo vim /etc/default/grub
-----
+```
 
 *2. Dentro de este fichero buscamos la siguiente línea:*
 
-----
+```bash
 GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"
-----
+```
 
 *3. Pulsamos la tecla _i_ para habilitar la edición y modificamos la línea anterior para que quede así:*
 
-----
+```bash
 GRUB_CMDLINE_LINUX_DEFAULT="single"
-----
+```
 
 *4. Guardamos los cambios y cerramos el fichero:* pulsamos la tecla _Esc_, a continuación tecleamos _:wq_ y pulsamos la tecla _Intro_.
 
 *5. Por último, actualizamos el _grub_*:
-----
+```bash
 sudo update-grub
-----
+```
 
 Y ya podemos reiniciar en modo _single user_:
-----
+```bash
 sudo reboot
-----
+```
 
 == Desactivar el inicio en modo single user
 
 Repetimos todos los pasos del apartado anterior, salvo que ahora la línea que hay que buscar es:
 
-----
+```bash
 GRUB_CMDLINE_LINUX_DEFAULT="single"
-----
+```
 
 Debemos editar esta línea para que quede como estaba originalmente:
 
-----
+```bash
 GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"
-----
+```
 
 *No debemos olvidarnos de actualizar el _grub_:*
 
-----
+```bash
 sudo update-grub
-----
+```
