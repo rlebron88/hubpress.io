@@ -9,92 +9,92 @@ A continuación mostraremos cómo obtener el nombre del fichero, su extensión y
 
 Para los ejemplos utilizaremos la siguiente ruta:
 
-----
+```bash
 path=/path/to/file.ext
-----
+```
 
 La variable _path_ contiene dicha ruta. Puede ver su contenido así:
 
-----
+```bash
 echo -e $path
-----
+```
 
 == Obtener el nombre de fichero
 
-----
+```bash
 file=${path##*/}
-----
+```
 
 La variable _file_ contiene el nombre de fichero:
 
-----
+```bash
 echo -e $file
-----
+```
 
 == Obtener la extensión de fichero
 
-----
+```bash
 ext=${path##*.}
-----
+```
 
 La variable _ext_ contiene la extensión de fichero:
 
-----
+```bash
 echo -e $ext
-----
+```
 
 == Obtener el directorio donde se halla el fichero
 
-----
+```bash
 dir=${path%/*}
 subdir=${dir##*/}
-----
+```
 
 La variable _dir_ contiene la ruta completa de directorios hasta el fichero:
 
-----
+```bash
 echo -e $dir
-----
+```
 
 La variable _subdir_ contiene el nombre del subdirectorio donde se halla el fichero:
 
-----
+```bash
 echo -e $subdir
-----
+```
 
 == Sustituciones en cadenas de caracteres
 
 Para explicar las sustituciones utilizaremos este ejemplo:
 
-----
+```bash
 data="chr1,100,200,0.5"
-----
+```
 
 El patrón que vamos a buscar es una coma (*_,_*) y lo reemplazaremos por un tabulador (*_\t_*, que escribiremos como *_\\t_* en la expressión por tratarse de un carácter escapado). +
 
 Para sustituir solo la primera coincidencia con el patrón:
 
-----
+```bash
 data=${data/,/\\t}
-----
+```
 
 Vemos que solo la primera coma se ha reemplazado por un tabulador:
 
-----
+```bash
 echo -e $data
-----
+```
 
 Para sustituir todas las coincidencias:
 
-----
+```bash
 data=${data//,/\\t}
-----
+```
 
 Ahora todas las comas han sido sustituidas por tabuladores:
 
-----
+```bash
 echo -e $data
-----
+```
 
 == Explicación
 
