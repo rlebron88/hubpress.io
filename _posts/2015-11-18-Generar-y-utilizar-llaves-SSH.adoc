@@ -9,9 +9,9 @@
 
 Abre una terminal en el *cliente SSH* y ejecuta:
 
-----
+```bash
 ssh-keygen
-----
+```
 
 Te preguntará en que fichero quieres guardar tu *llave privada* (puedes usar la opción por defecto). Usando como base el nombre del fichero de la llave privada generará también la *llave pública*, con la extensión *.pub*. +
 
@@ -21,15 +21,15 @@ A continuación te preguntará una frase de contraseña para tus llaves. Puedes 
 
 Ya tenemos nuestras llaves. Ahora debemos copiar tu llave pública en el *servidor SSH*. Ejecuta:
 
-----
+```bash
 ssh-copy-id -i <fichero .pub> <usuario>@<servidor>
-----
+```
 
 O si has dejado la opción por defecto para el nombre de las llaves:
 
-----
+```bash
 ssh-copy-id <usuario>@<servidor>
-----
+```
 
 Ahora nos pedirá la contraseña de tu usuario en el servidor. Una vez introducida correctamente, podremos utilizar SSH y rync para conectarnos a este servidor desde el cliente sin introducir la contraseña.
 
