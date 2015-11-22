@@ -25,21 +25,21 @@ Reset: \x1b[0m\n (printf) o \x1b[0m (echo -e)
 
 X (colores ANSI y otros):
 
-0: negro 
+0: [black white-background]*negro* 
 
-1: rojo
+1: [red white-background]*rojo*
 
-2: verde
+2: [green white-background]*verde*
 
-3: amarillo
+3: [yellow white-background]*amarillo*
 
-4: azul
+4: [blue white-background]*azul*
 
-5: magenta
+5: [fuchsia white-background]*magenta*
 
-6: cian
+6: [aqua white-background]*cian*
 
-7: blanco
+7: [white black-background]*blanco*
 
 8: otros (colores no ANSI)
 
