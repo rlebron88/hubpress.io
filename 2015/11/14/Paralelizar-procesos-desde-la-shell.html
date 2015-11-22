@@ -23,7 +23,7 @@
     <meta property="og:description" content="Utilizaremos el programa parallel para lanzar tantos procesos en paralelos como hilos tenga nuestra CPU. Instalación Para instalar parallel de los repositorios en Ubuntu: sudo apt-get install parallel Para el ejemplo necesitaremos el programa fastq-dump: sudo apt-get install sra..." />
     <meta property="og:url" content="https://rlebron88.github.io/2015/11/14/Paralelizar-procesos-desde-la-shell.html" />
     <meta property="article:published_time" content="2015-11-13T23:00:00.000Z" />
-    <meta property="article:modified_time" content="2015-11-22T20:00:02.481Z" />
+    <meta property="article:modified_time" content="2015-11-22T21:07:58.842Z" />
     <meta property="article:tag" content="paralelizar" />
     <meta property="article:tag" content="parallel" />
     <meta property="article:tag" content="fastq-dump" />
@@ -48,7 +48,7 @@
     "headline": "Aprovechar al máximo la CPU con parallel",
     "url": "https://rlebron88.github.io/2015/11/14/Paralelizar-procesos-desde-la-shell.html",
     "datePublished": "2015-11-13T23:00:00.000Z",
-    "dateModified": "2015-11-22T20:00:02.481Z",
+    "dateModified": "2015-11-22T21:07:58.842Z",
     "keywords": "paralelizar,  parallel,  fastq-dump",
     "description": "Utilizaremos el programa parallel para lanzar tantos procesos en paralelos como hilos tenga nuestra CPU. Instalación Para instalar parallel de los repositorios en Ubuntu: sudo apt-get install parallel Para el ejemplo necesitaremos el programa fastq-dump: sudo apt-get install sra..."
 }
@@ -57,11 +57,7 @@
     <meta name="generator" content="Ghost ?" />
     <link rel="alternate" type="application/rss+xml" title="Bio ✕ Info" href="https://rlebron88.github.io/rss" />
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css">
-    <style>
-        .hljs {
-        background: #F7FAFB;  
-        }
-    </style>
+    
 </head>
 <body class="post-template tag-paralelizar tag-parallel tag-fastq-dump">
 
@@ -102,7 +98,7 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>sudo apt-get install parallel</pre>
+<pre class="highlight"><code class="language-bash" data-lang="bash">sudo apt-get install parallel</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -110,7 +106,7 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>sudo apt-get install sra-toolkit</pre>
+<pre class="highlight"><code class="language-bash" data-lang="bash">sudo apt-get install sra-toolkit</code></pre>
 </div>
 </div>
 </div>
@@ -123,7 +119,7 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>ls *.sra | parallel -j+0 fastq-dump</pre>
+<pre class="highlight"><code class="language-bash" data-lang="bash">ls *.sra | parallel -j+0 fastq-dump</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -131,7 +127,7 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>ls *.sra | parallel -j+0 --eta --progress fastq-dump</pre>
+<pre class="highlight"><code class="language-bash" data-lang="bash">ls *.sra | parallel -j+0 --eta --progress fastq-dump</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -139,7 +135,7 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>ls *.sra | parallel -j4 --eta --progress fastq-dump</pre>
+<pre class="highlight"><code class="language-bash" data-lang="bash">ls *.sra | parallel -j4 --eta --progress fastq-dump</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -150,7 +146,7 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>ls *.sra | parallel -j+0 --eta --progress fastq-dump --split-files</pre>
+<pre class="highlight"><code class="language-bash" data-lang="bash">ls *.sra | parallel -j+0 --eta --progress fastq-dump --split-files</code></pre>
 </div>
 </div>
 </div>
