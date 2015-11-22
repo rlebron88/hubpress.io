@@ -3,4 +3,6 @@
 :hp-tags: FASTA, FASTQ, bioawk
 :hp-alt-title: Modificar ficheros FASTA y FASTQ con bioawk
 
- 
+ ```js
+function () { return "This code is highlighted as Javascript!"}
+```
