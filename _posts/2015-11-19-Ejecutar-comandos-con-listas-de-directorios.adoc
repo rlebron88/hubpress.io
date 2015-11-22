@@ -5,29 +5,29 @@
 
 A veces resulta útil aplicar un comando solo a los directorios, ignorando a los ficheros. Por ejemplo: +
 
-----
+```bash
 du -sh `ls -d */`
-----
+```
 
 Muestra el tamaño que ocupa cada subdirectorio de nuestro directorio de trabajo. Si el nombre de algún directorio contiene *espacios* nos devolvera algunos errores. Para evitar esto cambia el valor de la variable de entorno *_IFS_* al siguiente:
 
-----
+```bash
 IFS=$(echo -en "\n\b")
-----
+```
 
 == Comandos que aceptan una lista de directorios
 
-----
+```bash
 <comando> `ls -d */`
-----
+```
 
 == Comandos que NO aceptan una lista de directorios
 
-----
+```bash
 for dir in $(ls -d */)
 do
     <comando> $dir
 done
-----
+```
 
 
