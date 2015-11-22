@@ -44,7 +44,7 @@ X (colores ANSI y otros):
 8: otros (colores no ANSI)
 
 _Daniel Crisman_ link:http://www.tldp.org/HOWTO/Bash-Prompt-HOWTO/x329.html[aquí] Licencia link:http://www.gnu.org/copyleft/fdl.html[GFDL] MODIFICADO
-----
+```bash
 #!/bin/bash
 T='Texto'
 echo -e "\n                 40m     41m     42m     43m     44m     45m     46m     47m";
@@ -57,13 +57,13 @@ for FGs in '    m' '   1m' '  30m' '1;30m' '  31m' '1;31m' '  32m' '1;32m' '  33
   echo;
 done
 echo
-----
+```
 
 	; 5 ; (paleta de 256 colores)
     	XXX (color)
 
 _Michael Plotke_ link:http://bitmote.com/index.php?post/2012/11/19/Using-ANSI-Color-Codes-to-Colorize-Your-Bash-Prompt-on-Linux[aquí] Licencia link:http://creativecommons.org/licenses/by/3.0/[CC BY] MODIFICADO
-----
+```bash
 #!/bin/bash
 echo -en "\n   +  "
 for i in {0..35}; do
@@ -86,7 +86,7 @@ for i in {0..6}; do
 done
 
 echo -e "\n"
-----
+```
         
     ; 2 ; (color de 24 bits o "color verdadero")
     	RRR (rojo)
