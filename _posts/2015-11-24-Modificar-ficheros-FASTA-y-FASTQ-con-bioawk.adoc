@@ -4,5 +4,8 @@
 :hp-alt-title: Modificar ficheros FASTA y FASTQ con bioawk
 
 ```shell
-function () { return "This code is highlighted as Javascript!"}
+for var in $(ls)
+do
+  echo $var
+done
 ```
