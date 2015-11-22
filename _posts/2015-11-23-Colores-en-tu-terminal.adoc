@@ -94,3 +94,5 @@ echo -e "\n"
         BBB (azul)
         
 link:http://www.w3schools.com/tags/ref_colorpicker.asp[HTML Color Picker] de link:http://www.w3schools.com/[W3Schools]
+
++ m al final del código de color, antes del texto
