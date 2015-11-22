@@ -3,11 +3,3 @@
 :hp-tags: FASTA, FASTQ, bioawk
 :hp-alt-title: Modificar ficheros FASTA y FASTQ con bioawk
 
-```bash
-
-for var in range(0,100):
-
-line[0]
-
-sudo apt-get install htop
-```
