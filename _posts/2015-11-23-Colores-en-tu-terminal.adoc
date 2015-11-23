@@ -57,7 +57,7 @@ El *_1;3Y_* indica el color del texto y el *_1;4Y_* el color del fondo.
 |===
 |Y |Significado
 |0 |Negro
-|1 |Rojo
+|1 |[red]#Rojo#
 |2 |Verde
 |3 |Amarillo
 |4 |Azul
