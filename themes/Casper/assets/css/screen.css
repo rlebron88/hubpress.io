@@ -57,6 +57,10 @@
    background: gray;
 }
 
+.gray {
+   color: gray;
+}
+
 article, aside, details,
 figcaption, figure,
 footer, header, hgroup,
