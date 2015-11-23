@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <title>¡Da color a tu terminal!</title>
+    <meta name="description" content="" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="//rlebron88.github.io/themes/Casper/favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="//rlebron88.github.io/themes/Casper/assets/css/screen.css?v=1.0.0" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" />
+
+    <link rel="canonical" href="https://rlebron88.github.io/2015/11/23/Colores-en-tu-terminal.html" />
+    
+    <meta property="og:site_name" content="Bio ✕ Info" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="¡Da color a tu terminal!" />
+    <meta property="og:description" content="¿Te gustaría escribir y leer textos coloreados en tu terminal? ¿Necesitas que tus programas impriman mensajes de advertencia o error coloreados? ¡Este es tu post! El texto en la terminal se puede clasificar en función de la paleta de colores..." />
+    <meta property="og:url" content="https://rlebron88.github.io/2015/11/23/Colores-en-tu-terminal.html" />
+    <meta property="article:published_time" content="2015-11-22T23:00:00.000Z" />
+    <meta property="article:modified_time" content="2015-11-23T19:09:30.275Z" />
+    <meta property="article:tag" content="ANSI escape code" />
+    <meta property="article:tag" content="color" />
+    <meta property="article:tag" content="tput" />
+    
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="¡Da color a tu terminal!" />
+    <meta name="twitter:description" content="¿Te gustaría escribir y leer textos coloreados en tu terminal? ¿Necesitas que tus programas impriman mensajes de advertencia o error coloreados? ¡Este es tu post! El texto en la terminal se puede clasificar en función de la paleta de colores..." />
+    <meta name="twitter:url" content="https://rlebron88.github.io/2015/11/23/Colores-en-tu-terminal.html" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "publisher": "Bio ✕ Info",
+    "author": {
+        "@type": "Person",
+        "name": "Ricardo Lebrón",
+        "image": "https://avatars.githubusercontent.com/u/12849129?v=3",
+        "url": "undefined/author/undefined",
+        "sameAs": "http://bioinfo2.ugr.es"
+    },
+    "headline": "¡Da color a tu terminal!",
+    "url": "https://rlebron88.github.io/2015/11/23/Colores-en-tu-terminal.html",
+    "datePublished": "2015-11-22T23:00:00.000Z",
+    "dateModified": "2015-11-23T19:09:30.275Z",
+    "keywords": "ANSI escape code, color, tput",
+    "description": "¿Te gustaría escribir y leer textos coloreados en tu terminal? ¿Necesitas que tus programas impriman mensajes de advertencia o error coloreados? ¡Este es tu post! El texto en la terminal se puede clasificar en función de la paleta de colores..."
+}
+    </script>
+
+    <meta name="generator" content="Ghost ?" />
+    <link rel="alternate" type="application/rss+xml" title="Bio ✕ Info" href="https://rlebron88.github.io/rss" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css">
+    
+</head>
+<body class="post-template tag-ANSI-escape-code tag-color tag-tput">
+
+    
+
+
+<header class="main-header post-head no-cover">
+    <nav class="main-nav  clearfix">
+        <a class="back-button icon-arrow-left" href="https://rlebron88.github.io">Home</a>
+        <!-- <a class="subscribe-button icon-feed" href="https://rlebron88.github.io/rss/">Subscribe</a> -->
+    </nav>
+</header>
+
+<main class="content" role="main">
+
+    <article class="post tag-ANSI-escape-code tag-color tag-tput">
+
+        <header class="post-header">
+            <h1 class="post-title">¡Da color a tu terminal!</h1>
+            <section class="post-meta">
+                <time class="post-date" datetime="2015-11-23">23 November 2015</time>  on <a href="https://rlebron88.github.io/tag/ANSI-escape-code">ANSI escape code</a>, <a href="https://rlebron88.github.io/tag/color">color</a>, <a href="https://rlebron88.github.io/tag/tput">tput</a>
+            </section>
+        </header>
+
+        <section class="post-content">
+            <div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>¿Te gustaría escribir y leer textos coloreados en tu terminal? ¿Necesitas que tus programas impriman mensajes de advertencia o error coloreados? ¡Este es tu post!<br></p>
+</div>
+<div class="paragraph">
+<p>El texto en la terminal se puede clasificar en función de la paleta de colores que utiliza:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>ASCII plano:</strong> monocromático. Es el texto típico.</p>
+</li>
+<li>
+<p><strong>Colores ANSI:</strong> es una paleta de ocho colores. Soportada por casi todas las terminales.</p>
+</li>
+<li>
+<p><strong>Colores de 8 bits:</strong> es una paleta de 256 colores. Soportada por la mayoría de las terminales.</p>
+</li>
+<li>
+<p><strong>Color de 24 bits o color verdadero:</strong> es una paleta de más de 16 millones de colores. Soportada por pocas terminales (por ejemplo, <em>Konsole</em> o <em>UXterm</em>).</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>A continuación explicaremos como utilizar las diferentes paletas de colores. Para imprimir textos puedes utilizar el comando <strong><em>printf</em></strong> (no imprime un salto de línea, <strong><em>\n</em></strong> al final) o el comando <strong><em>echo -e</em></strong> (sí imprime un salto de línea al final).</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_colores_ansi">Colores ANSI</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A continuación describiremos el esquema general que hay que seguir para imprimir textos coloreados, independientemente de la paleta de colores que se utilice:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">"\x1b[1;XYmTEXTO\x1b[0m"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>o</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">"\033[1;XYmTEXTO\033[0m"</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong><em>\x1b[</em></strong> o <strong><em>\033[</em></strong>. Estos caracteres son obligatorios al principio del código de color. Indican que se va a utilizar un carácter ANSI.</p>
+</li>
+<li>
+<p><strong><em>1;</em></strong>. <strong>Es opcional</strong>. Indica que el color a utilizar es <strong>brillante</strong>. Elimínalo si quieres un color <strong>normal</strong>.</p>
+</li>
+<li>
+<p><strong><em>X</em></strong>. Indica si el color que se va a cambiar es del texto o el del fondo.</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">X</th>
+<th class="tableblock halign-left valign-top">Significado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Color del texto</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Color del fondo</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Se pueden combinar:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">"\x1b[1;3Y;1;4YmTEXTO\x1b[0m"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>El <strong><em>1;3Y</em></strong> indica el color del texto y el <strong><em>1;4Y</em></strong> el color del fondo.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong><em>Y</em></strong>. Selecciona el color.</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Y</th>
+<th class="tableblock halign-left valign-top">Significado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Negro</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Rojo</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Verde</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Amarillo</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Azul</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Magenta</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cian</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Blanco</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Otro. Se utiliza para indicar <strong>colores de 8 bits y de 24 bits</strong>.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong><em>m</em></strong>. Indica el final del código de color.</p>
+</li>
+<li>
+<p><strong><em>TEXTO</em></strong>. El texto que quieres colorear. Se pueden insertar en él tantos códigos de color como se quiera. Si un código de color cambiar el color del texto pero no el color del fondo, el color del texto se reemplaza por el nuevo color pero el del fondo no, y viceversa.</p>
+</li>
+<li>
+<p><strong><em>\x1b[0m</em></strong>. Devuelve el texto a sus colores por defecto.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Ejemplo:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">echo -e "\x1b[1;31m ESTO ES ROJO BRILLANTE\x1b[42m CON FONDO VERDE NORMAL\x1b[0m"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>El siguiente <em>script</em> en <em>Bash</em> muestra las diferentes combinaciones de colores ANSI:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">#!/bin/bash
+T='Texto'
+echo -e "\n                 40m     41m     42m     43m     44m     45m     46m     47m";
+for FGs in '    m' '   1m' '  30m' '1;30m' '  31m' '1;31m' '  32m' '1;32m' '  33m' '1;33m' '  34m' '1;34m' '  35m' '1;35m' '  36m' '1;36m' '  37m' '1;37m';
+  do FG=${FGs// /}
+  echo -en " $FGs \033[$FG  $T  "
+  for BG in 40m 41m 42m 43m 44m 45m 46m 47m;
+    do echo -en "$EINS \033[$FG\033[$BG  $T \033[0m\033[$BG \033[0m";
+  done
+  echo;
+done
+echo</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Este <em>script</em> se ha modificado a partir del <em>script</em> original de <em>Daniel Crisman</em> (ver <a href="http://www.tldp.org/HOWTO/Bash-Prompt-HOWTO/x329.html">aquí</a>; licencia <a href="http://www.gnu.org/copyleft/fdl.html">GFDL</a>)</p>
+</div>
+<div class="paragraph">
+<p>Guardalo como <strong><em>ANSI_colors</em></strong> y ejecutalo así:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">chmod +x ./ANSI_colors
+./ANSI_colors</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Estos colores también se pueden imprimir con <strong><em>tput</em></strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>tput setaf Y</strong>. Indica el color del texto.</p>
+</li>
+<li>
+<p><strong>tput setab Y</strong>. Indica el color del fondo.</p>
+</li>
+<li>
+<p><strong>tput sgr0</strong>. Devuelve el color del texto y del fondo a sus valores por defecto.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Puedes seguir el siguiente esquema para imprimirlos así:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">echo -e "$(tput setaf Y)$(tput setab Y)TEXTO$(tput sgr0)"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Ejemplo:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">echo -e "$(tput setaf 1) ESTO ES ROJO $(tput setab 2) CON FONDO VERDE $(tput sgr0)"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>El siguiente <em>script</em> muestra las combinaciones de colores que puede imprimir <strong>tput</strong>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">#!/bin/bash
+echo " B0  B1  B2  B3  B4  B5  B6  B7 "
+for af in {0..7}
+do
+  for ab in {0..7}
+  do
+    printf "$(tput setaf $af)$(tput setab $ab) F$af "
+  done
+  echo "$(tput sgr0)"
+done</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Guardalo como <strong><em>tput_colors</em></strong> y ejecutalo así:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">chmod +x ./tput_colors
+./tput_colors</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_colores_de_8_bits">Colores de 8 bits</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Siguen el siguiente esquema:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">"\x1b[1;X8;5;ZZZmTEXTO\x1b[0m"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Donde:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong><em>X</em></strong>: 3 para el color del texto, 4 para el del fondo.</p>
+</li>
+<li>
+<p><strong><em>5;</em></strong>: indica que la paleta de colores que se va a utilizar es de 8 bits.</p>
+</li>
+<li>
+<p><strong><em>ZZZ</em></strong>: es un número de 0 a 255 que indica el color dentro de la paleta.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>El siguiente <em>script</em> muestra los 256 colores de esta paleta:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">#!/bin/bash
+echo -en "\n   +  "
+for i in {0..35}; do
+  printf "%2b " $i
+done
+
+printf "\n\n %3b  " 0
+for i in {0..15}; do
+  echo -en "\033[48;5;${i}m  \033[m "
+done
+
+#for i in 16 52 88 124 160 196 232; do
+for i in {0..6}; do
+  let "i = i*36 +16"
+  printf "\n\n %3b  " $i
+  for j in {0..35}; do
+    let "val = i+j"
+    echo -en "\033[48;5;${val}m  \033[m "
+  done
+done
+
+echo -e "\n"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Este <em>script</em> se ha modificado a partir del <em>script</em> original de <em>Michael Plotke</em> (ver <a href="http://bitmote.com/index.php?post/2012/11/19/Using-ANSI-Color-Codes-to-Colorize-Your-Bash-Prompt-on-Linux">aquí</a>; licencia <a href="http://creativecommons.org/licenses/by/3.0/">CC BY</a>)</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_colores_de_24_bits">Colores de 24 bits</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Siguen el siguiente esquema:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">"\x1b[1;X8;2;RRR;GGG;BBBmTEXTO\x1b[0m"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Donde:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong><em>X</em></strong>: 3 para el color del texto, 4 para el del fondo.</p>
+</li>
+<li>
+<p><strong><em>2;</em></strong>: indica que la paleta de colores que se va a utilizar es de 24 bits.</p>
+</li>
+<li>
+<p><strong><em>RRR</em></strong>: es un número de 0 a 255 que indica la cantidad de rojo que contendrá el color seleccionado.</p>
+</li>
+<li>
+<p><strong><em>GGG</em></strong>: es un número de 0 a 255 que indica la cantidad de verde que contendrá el color seleccionado.</p>
+</li>
+<li>
+<p><strong><em>BBB</em></strong>: es un número de 0 a 255 que indica la cantidad de azul que contendrá el color seleccionado.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Para seleccionar colores en esta paleta puedes utilizar la heramiento online <a href="http://www.w3schools.com/tags/ref_colorpicker.asp">HTML Color Picker</a> de <a href="http://www.w3schools.com/">W3Schools</a>.</p>
+</div>
+</div>
+</div>
+        </section>
+
+        <footer class="post-footer">
+
+
+            <figure class="author-image">
+                <a class="img" href="" style="background-image: url(https://avatars.githubusercontent.com/u/12849129?v=3)"><span class="hidden">Ricardo Lebrón's Picture</span></a>
+            </figure>
+
+            <section class="author">
+                <h4><a href="">Ricardo Lebrón</a></h4>
+
+                    <p>Read <a href="">more posts</a> by this author.</p>
+                <div class="author-meta">
+                    <span class="author-location icon-location">Granada, Spain</span>
+                    <span class="author-link icon-link"><a href="http://bioinfo2.ugr.es">http://bioinfo2.ugr.es</a></span>
+                </div>
+            </section>
+
+
+            <section class="share">
+                <h4>Share this post</h4>
+                <a class="icon-twitter" href="https://twitter.com/share?text=%C2%A1Da%20color%20a%20tu%20terminal!&amp;url=https://rlebron88.github.io/2015/11/23/Colores-en-tu-terminal.html"
+                    onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <span class="hidden">Twitter</span>
+                </a>
+                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://rlebron88.github.io/2015/11/23/Colores-en-tu-terminal.html"
+                    onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <span class="hidden">Facebook</span>
+                </a>
+                <a class="icon-google-plus" href="https://plus.google.com/share?url=https://rlebron88.github.io/2015/11/23/Colores-en-tu-terminal.html"
+                   onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <span class="hidden">Google+</span>
+                </a>
+            </section>
+
+        </footer>
+
+
+    </article>
+
+</main>
+
+
+
+    <footer class="site-footer clearfix">
+        <section class="copyright"><a href="https://rlebron88.github.io">Bio ✕ Info</a> &copy; 2015</section>
+        <section class="poweredby">Proudly published with <a href="http://hubpress.io">HubPress</a></section>
+    </footer>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js?v="></script> <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.min.js?v="></script> <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js?v="></script> 
+      <script type="text/javascript">
+        jQuery( document ).ready(function() {
+          // change date with ago
+          jQuery('ago.ago').each(function(){
+            var element = jQuery(this).parent();
+            element.html( moment(element.text()).fromNow());
+          });
+        });
+
+        hljs.initHighlightingOnLoad();      
+      </script>
+
+    <script type="text/javascript" src="//rlebron88.github.io/themes/Casper/assets/js/jquery.fitvids.js?v=1.0.0"></script>
+    <script type="text/javascript" src="//rlebron88.github.io/themes/Casper/assets/js/index.js?v=1.0.0"></script>
+
+</body>
+</html>
