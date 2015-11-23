@@ -19,22 +19,72 @@ A continuación explicaremos como utilizar las diferentes paletas de colores. Pa
 
 == Colores ANSI
 
+A continuación describiremos el esquema general que hay que seguir para imprimir textos coloreados, independientemente de la paleta de colores que se utilice:
 
+```bash
+"\x1b[1;XYmTEXTO\x1b[0m"
+```
 
+o
 
+```bash
+"\033[1;XYmTEXTO\033[0m"
+```
 
+- *_\x1b[_* o *_\033[_*. Estos caracteres son obligatorios al principio del código de color. Indican que se va a utilizar un carácter ANSI.
 
-Reset: \x1b[0m\n (printf) o \x1b[0m (echo -e)
+- *_1;_*. *Es opcional*. Indica que el color a utilizar es *brillante*. Elimínalo si quieres un color *normal*.
 
-\x1b o \033
-
-
+- *_X_*. Indica si el color que se va a cambiar es del texto o el del fondo.
 
 [cols="2*"]
 |===
-|Carácter especial |Significado
+|X |Significado
+
+|3 |Color del texto
+
+|4 |Color del fondo
+
 |===
 
+Se pueden combinar:
+
+```bash
+"\x1b[1;3Y;1;4YmTEXTO\x1b[0m"
+```
+El *_1;3Y_* indica el color del texto y el *_1;4Y_* el color del fondo.
+
+- *_Y_*. Selecciona el color.
+
+[cols="2*"]
+|===
+|Y |Significado
+
+|0 |Negro
+
+|1 |Rojo
+
+|2 |Verde
+
+|3 |Amarillo
+
+|4 |Azul
+
+|5 |Magenta
+
+|6 |Cian
+
+|7 |Blanco
+
+|8 |Otro. Se utiliza para indicar *colores de 8 bits y de 24 bits*.
+
+|===
+
+- *_m_*. Indica el final del código de color.
+
+- *_TEXTO_*. El texto que quieres colorear. Se pueden insertar en él tantos códigos de color como se quiera. Si un código de color cambiar el color del texto pero no el color del fondo, el color del texto se reemplaza por el nuevo color pero el del fondo no, y viceversa.
+
+- *_\x1b[0m_*. Devuelve el texto a sus colores por defecto.
 
 
 
