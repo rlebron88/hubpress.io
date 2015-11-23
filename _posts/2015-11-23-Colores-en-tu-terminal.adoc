@@ -3,9 +3,26 @@
 :hp-tags: ANSI escape code,color,tput
 :hp-alt-title: Colores en tu terminal
 
-Colores vs ASCII plano
+¿Te gustaría escribir y leer textos coloreados en tu terminal? ¿Necesitas que tus programas impriman mensajes de advertencia o error coloreados? ¡Este es tu post! +
 
-NO TODAS LAS TERMINALES SON COMPATIBLES CON TODAS LAS PALETAS DE COLORES
+El texto en la terminal se puede clasificar en función de la paleta de colores que utiliza:
+
+- *ASCII plano:* monocromático. Es el texto típico.
+
+- *Colores ANSI:* es una paleta de ocho colores. Soportada por casi todas las terminales.
+
+- *Colores de 8 bits:* es una paleta de 256 colores. Soportada por la mayoría de las terminales.
+
+- *Color de 24 bits o color verdadero:* es una paleta de más de 16 millones de colores. Soportada por pocas terminales (por ejemplo, _Konsole_ o _UXterm_).
+
+A continuación explicaremos como utilizar las diferentes paletas de colores. Para imprimir textos puedes utilizar el comando *_printf_* (no imprime un salto de línea, *_\n_* al final) o el comando *_echo -e_* (sí imprime un salto de línea al final).
+
+== Colores ANSI
+
+
+
+
+
 
 Reset: \x1b[0m\n (printf) o \x1b[0m (echo -e)
 
