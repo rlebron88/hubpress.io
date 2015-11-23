@@ -117,40 +117,54 @@ chmod +x ./ANSI_colors
 ./ANSI_colors
 ```
 
+Estos colores también se pueden imprimir con *_tput_*:
+
+- *tput setaf Y*. Indica el color del texto.
+
+- *tput setab Y*. Indica el color del fondo.
+
+- *tput sgr0*. Devuelve el color del texto y del fondo a sus valores por defecto.
+
+Puedes seguir el siguiente esquema para imprimirlos así:
+
+```bash
+echo -e "$(tput setaf Y)$(tput setab Y)TEXTO$(tput sgr0)"
+```
+
+Ejemplo:
+
+```bash
+echo -e "$(tput setaf 1) ESTO ES ROJO $(tput setab 2) CON FONDO VERDE $(tput sgr0)"
+```
+
+El siguiente _script_ muestra las combinaciones de colores que puede imprimir *tput*:
+
+
+```bash
+#!/bin/bash
+echo " B0  B1  B2  B3  B4  B5  B6  B7 "
+for af in {0..7}
+do
+  for ab in {0..7}
+  do
+    printf "$(tput setaf $af)$(tput setab $ab) F$af "
+  done
+  echo "$(tput sgr0)"
+done
+```
+Guardalo como *_tput_colors_* y ejecutalo así:
+
+```bash
+chmod +x ./tput_colors
+./tput_colors
+```
+
+== Colores de 8 bits
 
 
 
-[
 
-;
 
-1 -> brillante
-
-;
-
-3X -> color del texto
-
-4X -> color del fondo
-
-X (colores ANSI y otros):
-
-0: negro 
-
-1: rojo
-
-2: verde
-
-3: amarillo
-
-4: azul
-
-5: magenta
-
-6: cian
-
-7: blanco
-
-8: otros (colores no ANSI)
 
 
 
@@ -190,23 +204,3 @@ echo -e "\n"
         
 link:http://www.w3schools.com/tags/ref_colorpicker.asp[HTML Color Picker] de link:http://www.w3schools.com/[W3Schools]
 
-+ m al final del código de color, antes del texto
-
-== Colores con tput
-
-texto: tput setaf [0-7]
-fondo: tput setab [0-7]
-reset: tput sgr0
-
-```bash
-#!/bin/bash
-echo " B0  B1  B2  B3  B4  B5  B6  B7 "
-for af in {0..7}
-do
-  for ab in {0..7}
-  do
-    printf "$(tput setaf $af)$(tput setab $ab) F$af "
-  done
-  echo "$(tput sgr0)"
-done
-```
