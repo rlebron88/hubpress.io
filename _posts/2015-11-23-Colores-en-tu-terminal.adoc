@@ -221,5 +221,5 @@ Donde:
 
 - *_BBB_*: es un número de 0 a 255 que indica la cantidad de azul que contendrá el color seleccionado.
         
-Para seleccionar colores en esta paleta puedes utilizar la heramiento online link:http://www.w3schools.com/tags/ref_colorpicker.asp[HTML Color Picker] de link:http://www.w3schools.com/[W3Schools].
+Para seleccionar colores en esta paleta puedes utilizar la heramienta online link:http://www.w3schools.com/tags/ref_colorpicker.asp[HTML Color Picker] de link:http://www.w3schools.com/[W3Schools].
 
