@@ -161,7 +161,18 @@ chmod +x ./tput_colors
 
 == Colores de 8 bits
 
+Siguen el siguiente esquema:
 
+```bash
+"\x1b[1;X8;5;ZZZmTEXTO\x1b[0m"
+```
+Donde:
+
+- *_X_*: 3 para el color del texto, 4 para el del fondo.
+
+- *_5;_*: indica que la paleta de colores que se va a utilizar es de 8 bits.
+
+- *_ZZZ_*: es un número de 0 a 255 que indica el color dentro de la paleta.
 
 
 
