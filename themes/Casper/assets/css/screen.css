@@ -54,11 +54,46 @@
 
 .white {
    color: white;
-   background: gray;
 }
 
-.gray {
-   color: gray;
+.black_silver {
+   color: black;
+   background: silver;
+}
+
+.red_silver {
+   color: red;
+   background: silver;
+}
+
+.green_silver {
+   color: green;
+   background: silver;
+}
+
+.yellow_silver {
+   color: yellow;
+   background: silver;
+}
+
+.blue_silver {
+   color: blue;
+   background: silver;
+}
+
+.magenta_silver {
+   color: magenta;
+   background: silver;
+}
+
+.cyan_silver {
+   color: cyan;
+   background: silver;
+}
+
+.white_silver {
+   color: white;
+   background: silver;
 }
 
 article, aside, details,
