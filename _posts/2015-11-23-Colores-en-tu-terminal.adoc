@@ -174,15 +174,8 @@ Donde:
 
 - *_ZZZ_*: es un número de 0 a 255 que indica el color dentro de la paleta.
 
+El siguiente _script_ muestra los 256 colores de esta paleta:
 
-
-
-
-
-	; 5 ; (paleta de 256 colores)
-    	XXX (color)
-
-_Michael Plotke_ link:http://bitmote.com/index.php?post/2012/11/19/Using-ANSI-Color-Codes-to-Colorize-Your-Bash-Prompt-on-Linux[aquí] Licencia link:http://creativecommons.org/licenses/by/3.0/[CC BY] MODIFICADO
 ```bash
 #!/bin/bash
 echo -en "\n   +  "
@@ -207,6 +200,10 @@ done
 
 echo -e "\n"
 ```
+Este _script_ se ha modificado a partir del _script_ original de _Michael Plotke_ (ver link:http://bitmote.com/index.php?post/2012/11/19/Using-ANSI-Color-Codes-to-Colorize-Your-Bash-Prompt-on-Linux[aquí]; licencia link:http://creativecommons.org/licenses/by/3.0/[CC BY]) 
+
+== Colores de 24 bits 
+
         
     ; 2 ; (color de 24 bits o "color verdadero")
     	RRR (rojo)
