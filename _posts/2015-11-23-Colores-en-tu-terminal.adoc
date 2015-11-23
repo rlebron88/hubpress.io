@@ -25,7 +25,7 @@ A continuación describiremos el esquema general que hay que seguir para imprimi
 "\x1b[1;XYmTEXTO\x1b[0m"
 ```
 
-o
+*o*
 
 ```bash
 "\033[1;XYmTEXTO\033[0m"
@@ -40,11 +40,8 @@ o
 [cols="2*"]
 |===
 |X |Significado
-
 |3 |Color del texto
-
 |4 |Color del fondo
-
 |===
 
 Se pueden combinar:
@@ -59,25 +56,15 @@ El *_1;3Y_* indica el color del texto y el *_1;4Y_* el color del fondo.
 [cols="2*"]
 |===
 |Y |Significado
-
 |0 |Negro
-
 |1 |Rojo
-
 |2 |Verde
-
 |3 |Amarillo
-
 |4 |Azul
-
 |5 |Magenta
-
 |6 |Cian
-
 |7 |Blanco
-
 |8 |Otro. Se utiliza para indicar *colores de 8 bits y de 24 bits*.
-
 |===
 
 - *_m_*. Indica el final del código de color.
