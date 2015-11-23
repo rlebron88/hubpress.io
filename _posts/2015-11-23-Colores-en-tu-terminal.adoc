@@ -78,7 +78,7 @@ El *_1;3Y_* indica el color del texto y el *_1;4Y_* el color del fondo.
 Ejemplo:
 
 ```bash
-echo -e "\x1b[1;31m [red]*ESTO ES ROJO BRILLANTE*\x1b[42m CON FONDO VERDE NORMAL\x1b[0m"
+echo -e "\x1b[1;31m ESTO ES ROJO BRILLANTE\x1b[42m CON FONDO VERDE NORMAL\x1b[0m"
 ```
 
 El siguiente _script_ en _Bash_ muestra las diferentes combinaciones de colores ANSI:
