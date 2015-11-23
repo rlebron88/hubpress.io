@@ -58,15 +58,15 @@ El *_1;3Y_* indica el color del texto y el *_1;4Y_* el color del fondo.
 |===
 |Y |Significado
 
-|0 |[black_silver]*Negro*
-|1 |[red_silver]*Rojo*
-|2 |[green_silver]*Verde*
-|3 |[yellow_silver]*Amarillo*
-|4 |[blue_silver]*Azul*
-|5 |[magenta_silver]*Magenta*
-|6 |[cyan_silver]*Cian*
-|7 |[white_silver]*Blanco*
-|8 |[black]*Otro*. Se utiliza para indicar *colores de 8 bits y de 24 bits*.
+|0 |[black_silver]* Negro *
+|1 |[red_silver]* Rojo *
+|2 |[green_silver]* Verde *
+|3 |[yellow_silver]* Amarillo *
+|4 |[blue_silver]* Azul *
+|5 |[magenta_silver]* Magenta *
+|6 |[cyan_silver]* Cian *
+|7 |[white_silver]* Blanco *
+|8 |[black]* Otro.* Se utiliza para indicar *colores de 8 bits y de 24 bits*.
 |===
 
 - *_m_*. Indica el final del código de color.
