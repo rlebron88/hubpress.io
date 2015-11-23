@@ -204,11 +204,22 @@ Este _script_ se ha modificado a partir del _script_ original de _Michael Plotke
 
 == Colores de 24 bits 
 
+Siguen el siguiente esquema:
+
+```bash
+"\x1b[1;X8;2;RRR;GGG;BBBmTEXTO\x1b[0m"
+```
+Donde:
+
+- *_X_*: 3 para el color del texto, 4 para el del fondo.
+
+- *_2;_*: indica que la paleta de colores que se va a utilizar es de 24 bits.
+
+- *_RRR_*: es un número de 0 a 255 que indica la cantidad de rojo que contendrá el color seleccionado.
+
+- *_GGG_*: es un número de 0 a 255 que indica la cantidad de verde que contendrá el color seleccionado.
+
+- *_BBB_*: es un número de 0 a 255 que indica la cantidad de azul que contendrá el color seleccionado.
         
-    ; 2 ; (color de 24 bits o "color verdadero")
-    	RRR (rojo)
-        GGG (verde)
-        BBB (azul)
-        
-link:http://www.w3schools.com/tags/ref_colorpicker.asp[HTML Color Picker] de link:http://www.w3schools.com/[W3Schools]
+Para seleccionar colores en esta paleta puedes utilizar la heramiento online link:http://www.w3schools.com/tags/ref_colorpicker.asp[HTML Color Picker] de link:http://www.w3schools.com/[W3Schools].
 
