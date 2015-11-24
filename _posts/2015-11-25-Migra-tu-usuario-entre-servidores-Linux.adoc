@@ -65,7 +65,7 @@ Si es así, añade al usuario a dicho grupo en el receptor editando _/etc/_group
 *8. Comprueba si en el fichero _/etc/gshadow_ del emisor si el usuario pertenece a algún otro grupo, por ejemplo, sudo.* Estas líneas tienen este aspecto:
 
 ```bash
-<usuario>:*::<usuario>,otro_usuario,y_otro,y_otro_mas ...
+migrupo:*::<usuario>,otro_usuario,y_otro,y_otro_mas ...
 ```
 
 Si es así, añade al usuario a dicho grupo en el receptor editando _/etc/_gshadow_. Si el grupo no existe, añadelo copiando la línea correspondiente del receptor y editala para que solo contenga a este usuario.
