@@ -13,17 +13,69 @@ Llamaremos _receptor_ al servidor que recibe al usuario y _emisor_ al que lo env
 
 *Para migrar un usuario:*
 
-*1. Crea la carpeta /home/<usuario> (necesitarás ser administrador) y dale permisos a tu usuario para escribir en ella*:
+*1. Crea la carpeta _/home/<usuario>_ (necesitarás ser administrador) y asignala como propiedad de tu usuario para poder escribir en ella*:
 
 ```bash
 sudo mkdir /home/<usuario>
 sudo chown <tu usuario> /home/<usuario>
 ```
 
-*2. Copia el contenido de la carpeta /home/<usuario> del emisor al receptor:*
+*2. Copia el contenido de la carpeta _/home/<usuario>_ del emisor al receptor:*
 
 ```bash
 rsync -avzr /home/<usuario>/* <tu usuario>@<receptor>:/home/<usuario>/
 ```
 
-*3. *
+La opción *_-a_* copia los ficheros conservando sus atributos.
+
+*3. Abre el fichero _/etc/passwd_ del emisor y copia la línea que corresponde al usuario. Pégala en el fichero _/etc/passwd_ del receptor*. Esta línea tiene este aspecto:
+
+```bash
+<usuario>:x:UID:GID:Nombre y Apellidos,,,:/home/<usuario>:/bin/bash
+```
+*Después de pegar la línea, asegúrate de que ningún otro usuario del receptor tiene el mismo UID o GID.* Si coincide, cambia el valor por otro que sea válido (entre 1000 y 29999 en _Debian_ o _Ubuntu_ y entre 500 y 65534 en _Fedora_ o _CentOS_).
+
+*4. Abre el fichero _/etc/shadow_ del emisor y copia la línea que corresponde al usuario. Pégala en el fichero _/etc/shadow_ del receptor*. Esta línea tiene este aspecto:
+
+```bash
+<usuario>:CONTRASEÑA DEL USUARIO ENCRIPTADA:NNNNN:0:99999:7:::
+```
+
+*5. Abre el fichero _/etc/group_ del emisor y copia la línea que corresponde al usuario. Pégala en el fichero _/etc/group_ del receptor*. Esta línea tiene este aspecto:
+
+```bash
+<usuario>:x:UID:
+```
+*Vuelve a cambiar el UID si es necesario.*
+
+*6. Comprueba si en el fichero _/etc/group_ del emisor si el usuario pertenece a algún otro grupo, por ejemplo, sudo.* Estas líneas tienen este aspecto:
+
+```bash
+<usuario>:x:27:<usuario>,otro_usuario,y_otro,y_otro_mas ...
+```
+
+Si es así, añade al usuario a dicho grupo en el receptor editando _/etc/_group_. Si el grupo no existe, añadelo copiando la línea correspondiente del receptor y editala para que solo contenga a este usuario.
+
+*7. Abre el fichero _/etc/gshadow_ del emisor y copia la línea que corresponde al usuario. Pégala en el fichero _/etc/gshadow_ del receptor*. Esta línea tiene este aspecto:
+
+```bash
+<usuario>:!::
+```
+
+*8. Comprueba si en el fichero _/etc/gshadow_ del emisor si el usuario pertenece a algún otro grupo, por ejemplo, sudo.* Estas líneas tienen este aspecto:
+
+```bash
+<usuario>:*::<usuario>,otro_usuario,y_otro,y_otro_mas ...
+```
+
+Si es así, añade al usuario a dicho grupo en el receptor editando _/etc/_gshadow_. Si el grupo no existe, añadelo copiando la línea correspondiente del receptor y editala para que solo contenga a este usuario.
+
+*9. Asigna al usuario migrado como el propietario de /home/<usuario> en el receptor:*
+
+```bash
+sudo chown -R <usuario> /home/<usuario>
+```
+
+Y listo. ¡Ya hemos migrado al usuario! +
+
+Ahora puedes autentificarte con esta cuenta usando la misma contraseña que tenía originalmente este usuario.
