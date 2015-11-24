@@ -1,0 +1,17 @@
+= Cómo crear alias de tu usuario
+:published_at: 2015-11-24
+:hp-tags: usuario,contraseña
+:hp-alt-title: Añade sinónimos de tu nombre de usuario
+
+En ocasiones resulta cómodo disponer de alias de tu usuario. Por ejemplo, cuando quieres acceder a un servidor por _SSH_escribes:
+
+```bash
+ssh <usuario>@<servidor>
+```
+Si tu nombre de usuario coincide en el cliente y en el servidor, puedes simplificarlo así:
+
+```bash
+ssh <servidor>
+```
+Puede parecer un detalle sin importancia, pero cuando tienes que acceder a ese servidor decenas de veces al día la cosa cambia. +
+
