@@ -61,5 +61,7 @@ migrupo:x:27:usuario,alias,otro_usuario,y_otro,y_otro_mas ...
 
 *4. Editar el fichero _/etc/gshadow_:*
 
-Haz lo mismo que con _/etc/group_.
+Haz lo mismo que con _/etc/group_. +
 
+
+¡Ya puedes utilizar tu alias! Prueba a identificarte con tu alias y ejecuta el comando _who_. Verás que te devuelve el alias. Cómo se trata de un alias, tendrás exactamente los mismos permisos que con tu usuario. Por ejemplo, podrás editar cualquier fichero de tu usuario si accedes con tu alias y viceversa. De hecho, tu usuario y tu alias son el mismo usuario porque comparten *_UID_* (identificador de usuario) y, por tanto, el propietario de estos ficheros es el mismo.
