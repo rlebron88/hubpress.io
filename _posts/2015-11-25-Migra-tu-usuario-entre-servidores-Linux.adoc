@@ -3,3 +3,27 @@
 :hp-tags: usuario,contraseña,rsync
 :hp-alt-title: Migra tu usuario entre servidores Linux
 
+En ocasiones es necesario copiar o migrar tu cuenta de usuario (o la de otro) de un servidor Linux a otro. En este post aprenderás cómo. +
+
+[small gray]*Se recomienda leer el post link:https://rlebron88.github.io/2015/11/24/Anade-sinonimos-a-tu-nombre-de-usuario-en-Linux.html[_Cómo crear alias de tu usuario en Linux_].*
+
+== Migrar tu usuario
+
+Llamaremos _receptor_ al servidor que recibe al usuario y _emisor_ al que lo envía, _<usuario>_ al usuario que se quiere migrar y _<tu usuario>_ al usuario que lleva a cabo la migración. +
+
+*Para migrar un usuario:*
+
+*1. Crea la carpeta /home/<usuario> (necesitarás ser administrador) y dale permisos a tu usuario para escribir en ella*:
+
+```bash
+sudo mkdir /home/<usuario>
+sudo chown <tu usuario> /home/<usuario>
+```
+
+*2. Copia el contenido de la carpeta /home/<usuario> del emisor al receptor:*
+
+```bash
+rsync -avzr /home/<usuario>/* <tu usuario>@<receptor>:/home/<usuario>/
+```
+
+*3. *
