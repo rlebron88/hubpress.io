@@ -1,7 +1,7 @@
-= Cómo crear alias de tu usuario
+= Cómo crear alias de tu usuario en Linux
 :published_at: 2015-11-24
 :hp-tags: usuario,contraseña
-:hp-alt-title: Añade sinónimos de tu nombre de usuario
+:hp-alt-title: Añade sinónimos a tu nombre de usuario en Linux
 
 En ocasiones resulta cómodo disponer de alias para tu usuario. Por ejemplo, cuando quieres acceder a un servidor por _SSH_ escribes:
 
