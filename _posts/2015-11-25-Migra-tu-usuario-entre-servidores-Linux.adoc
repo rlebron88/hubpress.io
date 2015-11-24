@@ -70,10 +70,10 @@ migrupo:*::<usuario>,otro_usuario,y_otro,y_otro_mas ...
 
 Si es así, añade al usuario a dicho grupo en el receptor editando _/etc/_gshadow_. Si el grupo no existe, añadelo copiando la línea correspondiente del receptor y editala para que solo contenga a este usuario.
 
-*9. Asigna al usuario migrado como el propietario de /home/<usuario> en el receptor:*
+*9. En el recpetor, asigna al directorio /home/<usuario> como propiedad del usuario migrado:*
 
 ```bash
-sudo chown -R <usuario> /home/<usuario>
+sudo chown <usuario> /home/<usuario>
 ```
 
 Y listo. ¡Ya hemos migrado al usuario! +
