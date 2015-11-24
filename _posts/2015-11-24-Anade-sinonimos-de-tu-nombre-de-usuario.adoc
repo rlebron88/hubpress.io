@@ -29,8 +29,37 @@ alias:x:100N:100N:Nombre y Apellidos,,,:/home/usuario:/bin/bash
 ```
 *NO* edites la ruta de tu home en la línea del alias ni ningún otro dato, salvo que tengas claro lo que estás haciendo ;-)
 
-*2. Editar el fichero _/etc/passwd_:*
+*2. Editar el fichero _/etc/shadow_:*
 
+Haz lo mismo que con el otro fichero.
 
+```bash
+usuario:TU CONTRASEÑA ENCRIPTADA:NNNNN:0:99999:7:::
+alias:TU CONTRASEÑA ENCRIPTADA:NNNNN:0:99999:7:::
+```
 
+*3. Editar el fichero _/etc/group_:*
+
+Aquí tendrás que hacer dos cosas:
+
+- Lo mismo que con los dos ficheros anteriores:
+
+```bash
+usuario:x:100N:
+alias:x:100N:
+```
+- Añadir el alias a todos los grupos en los que esté tu usuario. Por ejemplo, editamos esta línea:
+
+```bash
+migrupo:x:27:usuario,otro_usuario,y_otro,y_otro_mas ...
+```
+Para que quede así:
+
+```bash
+migrupo:x:27:usuario,alias,otro_usuario,y_otro,y_otro_mas ...
+```
+
+*4. Editar el fichero _/etc/gshadow_:*
+
+Haz lo mismo que con _/etc/group_.
 
