@@ -21,7 +21,15 @@ Para crear un alias debes pertenecer al grupo sudo y seguir los siguientes pasos
 
 *1. Editar el fichero _/etc/passwd_:*
 
+Busca la línea que empieza por el nombre de tu usuario y copiala. Edita la línea copiada, sustituyendo el nombre de usuario por el alias:
 
+```bash
+usuario:x:100N:100N:Nombre y Apellidos,,,:/home/usuario:/bin/bash
+alias:x:100N:100N:Nombre y Apellidos,,,:/home/usuario:/bin/bash
+```
+*NO* edites la ruta de tu home en la línea del alias ni ningún otro dato, salvo que tengas claro lo que estás haciendo ;-)
+
+*2. Editar el fichero _/etc/passwd_:*
 
 
 
