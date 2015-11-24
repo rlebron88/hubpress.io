@@ -1,0 +1,5 @@
+= Cómo copiar tu usuario de un servidor Linux a otro
+:published_at: 2015-11-25
+:hp-tags: usuario,contraseña,rsync
+:hp-alt-title: Migra tu usuario entre servidores Linux
+
