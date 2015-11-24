@@ -33,7 +33,7 @@ La opción *_-a_* copia los ficheros conservando sus atributos.
 ```bash
 <usuario>:x:UID:GID:Nombre y Apellidos,,,:/home/<usuario>:/bin/bash
 ```
-*Después de pegar la línea, asegúrate de que ningún otro usuario del receptor tiene el mismo UID o GID.* Si coincide, cambia el valor por otro que sea válido (entre 1000 y 29999 en _Debian_ o _Ubuntu_ y entre 500 y 65534 en _Fedora_ o _CentOS_).
+Después de pegar la línea, asegúrate de que ningún otro usuario del receptor tiene el mismo UID o GID. Si coincide, cambia el valor por otro que sea válido (entre 1000 y 29999 en _Debian_ o _Ubuntu_ y entre 500 y 65534 en _Fedora_ o _CentOS_).
 
 *4. Abre el fichero _/etc/shadow_ del emisor y copia la línea que corresponde al usuario. Pégala en el fichero _/etc/shadow_ del receptor*. Esta línea tiene este aspecto:
 
@@ -46,7 +46,7 @@ La opción *_-a_* copia los ficheros conservando sus atributos.
 ```bash
 <usuario>:x:GID:
 ```
-*Vuelve a cambiar el GID si es necesario.*
+Vuelve a cambiar el GID si es necesario.
 
 *6. Comprueba si en el fichero _/etc/group_ del emisor si el usuario pertenece a algún otro grupo, por ejemplo, sudo.* Estas líneas tienen este aspecto:
 
