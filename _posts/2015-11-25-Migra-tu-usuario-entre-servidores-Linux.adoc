@@ -54,7 +54,7 @@ La opción *_-a_* copia los ficheros conservando sus atributos.
 migrupo:x:GID:<usuario>,otro_usuario,y_otro,y_otro_mas ...
 ```
 
-Si es así, añade al usuario a dicho grupo en el receptor editando _/etc/_group_. Si el grupo no existe, añadelo copiando la línea correspondiente del receptor y editala para que solo contenga a este usuario.
+Si es así, añade al usuario a dicho grupo en el receptor editando _/etc/_group_. Si el grupo no existe, añadelo copiando la línea correspondiente del receptor y editala para que solo contenga a este usuario. Si es necesario, cambia el GID.
 
 *7. Abre el fichero _/etc/gshadow_ del emisor y copia la línea que corresponde al usuario. Pégala en el fichero _/etc/gshadow_ del receptor*. Esta línea tiene este aspecto:
 
