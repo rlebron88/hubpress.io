@@ -3,7 +3,7 @@
 :hp-tags: usuario,contraseña
 :hp-alt-title: Añade sinónimos de tu nombre de usuario
 
-En ocasiones resulta cómodo disponer de alias de tu usuario. Por ejemplo, cuando quieres acceder a un servidor por _SSH_ escribes:
+En ocasiones resulta cómodo disponer de alias para tu usuario. Por ejemplo, cuando quieres acceder a un servidor por _SSH_ escribes:
 
 ```bash
 ssh <usuario>@<servidor>
@@ -15,7 +15,7 @@ ssh <servidor>
 ```
 Puede parecer un detalle sin importancia, pero cuando tienes que acceder a ese servidor decenas de veces al día la cosa cambia. Un alias puede hacer tu vida un poco más cómoda :-)
 
-Para crear un alias debes pertenecer al grupo sudo y seguir los siguientes pasos. Si no perteneces al grupo sudo, un administrador debe hacerlo por ti.
+Para crear un alias debes pertenecer al grupo _sudo_ y seguir los siguientes pasos. Si no perteneces al grupo _sudo_, un administrador debe hacerlo por ti.
 
 == Crear un alias
 
