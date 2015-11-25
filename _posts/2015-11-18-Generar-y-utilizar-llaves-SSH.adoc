@@ -1,6 +1,6 @@
 = ¿Estás harto de escribir tu contraseña en SSH o rsync? ¡Este es tu post!
 :published_at: 2015-11-18
-:hp-tags: ssh, rync
+:hp-tags: ssh, rsync
 :hp-alt-title: Generar y utilizar llaves SSH
 
 ¿Utilizas decenas de veces al día SSH? ¿Trabajas con varios servidores y en cada uno tienes una contraseña distinta? ¿Te gustaría utilizar rsync en el cron y no sabes cómo automatizarlo? ¡Las *llaves SSH* son lo que necesitas!
